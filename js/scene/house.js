@@ -11,6 +11,9 @@ canvas.Scene.new({
 			},
 			walls: "img/DawnHack/Objects/Walls.png",
 			mountains_first: "img/DawnHack/Objects/Mountains1.png"
+		},
+		fonts : {
+			ubuntu: "fonts/Ubuntu.woff"
 		}
 	},
 	called: function(stage){
@@ -23,10 +26,15 @@ canvas.Scene.new({
 		this.progress.fillText("["+percentage+"] Loading: "+material.data.path,100,150);
 	},
 	ready: function(stage,params){
+		/* FullScreen */
+	
 		var _canvas=this.getCanvas();
 		stage.click(function(e,mouse){
 			_canvas.setSize("fullscreen","fit");
 		});
+		
+		/* Load Tiled map */
+		
 		this.map = this.createElement();
 		var tiled = canvas.Tiled.new ();
 		tiled.load(this, this.map, "maps/house.json");
@@ -37,6 +45,14 @@ canvas.Scene.new({
         
 		});
 		stage.append(this.map);
+		
+		/* Collisions */
+		var entity=Class.new("Entity",[stage]);
+		entity.rect(16,16*50);
+		entity.position(0,0);
+		
+		/* Scrolling */
+		
 		this.scrolling=canvas.Scrolling.new(this,16,16);
 		this.player=this.createElement();
 		this.player.fillRect(16,16,16,16);
@@ -50,6 +66,23 @@ canvas.Scene.new({
 		});
 		stage.append(this.player);
 		
+		/* Text and information */
+		
+		var content=this.createElement();
+		var text=canvas.Text.new(this, "The light goes off. Something strante is happening");
+		text.style({
+			size: "18px ubuntu",
+			lineWidth: 300,
+			color: "black"
+		}).draw(content,20,20, {
+			line: {
+				frames: 50
+			}
+		});
+		stage.append(content);
+		
+		
+		/* Input Handler */
 		canvas.Input.keyDown(Input.Left);
 		canvas.Input.keyDown(Input.Right);
 		canvas.Input.keyDown(Input.Up);

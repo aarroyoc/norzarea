@@ -7,6 +7,8 @@ var canvas=CE.defines("canvas")
 	.extend(Tiled)
 	.extend(Spritesheet)
 	.extend(Scrolling)
+	.extend(Text)
+	.extend(Hit)
 	.ready(function(){
 	canvas.Scene.call("House");
 });
