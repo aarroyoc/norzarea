@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="25" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="walls" tilewidth="16" tileheight="16">
+  <image source="../img/DawnHack/Objects/Walls.png" width="320" height="432"/>
+ </tileset>
+ <tileset firstgid="541" name="mountains_first" tilewidth="16" tileheight="16">
+  <image source="../img/DawnHack/Objects/Mountains1.png" width="128" height="288"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="50" height="25">
+  <data encoding="base64" compression="zlib">
+   eJyzZWBgsKMjtgdiRSguZyIPKzJg4kAsYrTEyPaR4t7B7A9i3EeuufTyB7XcP9D+GCrm0huP+mNw2Tfqj8Fl36g/Bpd9o/4YXPaN+mNw2ZfKQN/+Rzqdw20Uj+JRPIpH8SjGhwFWMLft
+  </data>
+ </layer>
+</map>

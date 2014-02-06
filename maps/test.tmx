@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="walls" tilewidth="16" tileheight="16">
+  <image source="../img/DawnHack/Objects/Walls.png" width="320" height="432"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1rsNwjAUQNEwSgYBiRGgpkXsw8TQ0EQ2fs4HO+IUp3Os5N38xmEYRgAAoOj4dio4B9akPDu4vr25BNZcN9yb381Mj75mpke9+1D+DoyBNSmPDq4PenI7tD8H9Fh7hlN69NVjbqPPuiV7/LvprHKzi8y11FOX+h6RueUalo7RJN4jdS/XtIzMuWbvf1b7fHzrEX1GWl9zz+Z8e3PfnNyx3lfbN0z1TDXxj9Wux9J/Ztbp0fp8cN8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwN69AHp/Km4=
+  </data>
+ </layer>
+</map>
