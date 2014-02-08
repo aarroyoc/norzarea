@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>GameJS engine</title>
 	<meta charset="utf-8"/>
-	<title>Norzarea</title>
-	<script src="lib/canvasengine-1.3.2.all.min.js"></script>
-	<script src="lib/Tiled.js"></script>
-	<script src="js/start.js"></script>
-	<script src="js/scene/house.js"></script>
+	<script src="lib/yabble.js"></script>
+	<script src="lib/gamejs.min.js"></script>
+	<script>
+	require.setModuleRoot("./js/");
+	require.run("main");
+	</script>
 </head>
 <body>
-	<canvas id="canvas" width="640" height="480">
-	Your browser doesn't support the HTML5 Canvas Element. Please, upgrade to <a href="http://mzl.la">Mozilla Firefox</a>
-	</canvas>
+	    <div id="gjs-fullscreen-toggle">
+        <div id="gjs-loader">
+         Loading...
+        </div>
+        <canvas id="gjs-canvas"></canvas>
+    </div>
 </body>
 </html>

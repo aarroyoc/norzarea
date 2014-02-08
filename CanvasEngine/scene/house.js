@@ -11,10 +11,10 @@ canvas.Scene.new({
 			},
 			walls: "img/DawnHack/Objects/Walls.png",
 			mountains_first: "img/DawnHack/Objects/Mountains1.png"
-		},
+		}/*,
 		fonts : {
-			ubuntu: "fonts/Ubuntu.woff"
-		}
+			ubuntu: "fonts/Ubuntu.ttf"
+		}*/
 	},
 	called: function(stage){
 		this.progress=this.createElement();
@@ -44,12 +44,16 @@ canvas.Scene.new({
                 layer_object = this.getLayerObject();
         
 		});
+		this.map.pack(400,200);
 		stage.append(this.map);
+		/* Pack It */
+		console.log(this.map);
+		
 		
 		/* Collisions */
-		var entity=Class.new("Entity",[stage]);
+		/*var entity=Class.new("Entity",[stage]);
 		entity.rect(16,16*50);
-		entity.position(0,0);
+		entity.position(0,0);*/
 		
 		/* Scrolling */
 		
@@ -71,7 +75,7 @@ canvas.Scene.new({
 		var content=this.createElement();
 		var text=canvas.Text.new(this, "The light goes off. Something strante is happening");
 		text.style({
-			size: "18px ubuntu",
+			size: "18px" /*ubuntu*/,
 			lineWidth: 300,
 			color: "black"
 		}).draw(content,20,20, {
