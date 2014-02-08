@@ -7,7 +7,7 @@ gamejs.ready(function() {
    gamejs.display.setCaption('TMX viewer');
    var display = gamejs.display.setMode([800, 500],gamejs.display.POINTERLOCK);
 
-   var map = new view.Map('../../maps/house.tmx');
+   var map = new view.Map('../maps/house.tmx');
 
    gamejs.onEvent(function(event) {
          map.handle(event);
