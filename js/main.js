@@ -16,7 +16,7 @@ gamejs.ready(function() {
    /* Characters SpriteSheet */
    var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
    var vadrix=new sprite.Sprite();
-   vadrix.rect=new gamejs.Rect([16*50,16*25],[16,16]);
+   vadrix.rect=new gamejs.Rect([16*25,16*10],[16,16]);
    vadrix.image=characters.get(0);
    
    /* TMX Map */
