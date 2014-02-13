@@ -32,6 +32,9 @@ var Map = exports.Map = function(url) {
          tiles: map.tiles
       });
    });
+   this.getMap = function(){
+		return map;
+   }
    return this;
 };
 
@@ -79,7 +82,7 @@ var MapController = function() {
    this.offset = [0,0];
 
    this.handle = function(event) {
-      if (event.type === gamejs.event.KEY_DOWN) {
+      /*if (event.type === gamejs.event.KEY_DOWN) {
          if (event.key === gamejs.event.K_LEFT) {
             this.offset[0] += 16;
          } else if (event.key === gamejs.event.K_RIGHT) {
@@ -89,7 +92,7 @@ var MapController = function() {
          } else if (event.key === gamejs.event.K_UP) {
             this.offset[1] += 16;
          }
-      }
+      }*/
    };
 
    this.update = function(msDuration) {
