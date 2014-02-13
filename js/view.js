@@ -81,13 +81,13 @@ var MapController = function() {
    this.handle = function(event) {
       if (event.type === gamejs.event.KEY_DOWN) {
          if (event.key === gamejs.event.K_LEFT) {
-            this.offset[0] += 50;
+            this.offset[0] += 16;
          } else if (event.key === gamejs.event.K_RIGHT) {
-            this.offset[0] -= 50;
+            this.offset[0] -= 16;
          } else if (event.key === gamejs.event.K_DOWN) {
-            this.offset[1] -= 50;
+            this.offset[1] -= 16;
          } else if (event.key === gamejs.event.K_UP) {
-            this.offset[1] += 50;
+            this.offset[1] += 16;
          }
       }
    };
