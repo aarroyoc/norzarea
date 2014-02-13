@@ -17,19 +17,18 @@ gamejs.ready(function() {
    /* Characters SpriteSheet */
    var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
    var vadrix=new sprite.Sprite();
-   vadrix.xpos=16*25;
-   vadrix.ypos=16*10;
-   vadrix.rect=new gamejs.Rect([16*25,16*10],[16,16]);
+   vadrix.xpos=25;
+   vadrix.ypos=10;
+   vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
    vadrix.image=characters.get(0);
    vadrix.update=function()
    {
-		vadrix.rect=new gamejs.Rect([vadrix.xpos,vadrix.ypos],[16,16]);
+		vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
    }	
    
    /* TMX Map */
    
    var map = new view.Map('./maps/house.tmx');
-   console.log(map.getMap());
    var coll=new collision.CollisionMap(map.getMap());
    
    /* Events for every object */
@@ -37,17 +36,17 @@ gamejs.ready(function() {
         map.handle(event);
 		if (event.type === gamejs.event.KEY_DOWN) {
 			//DO THINGS
-			var tempX, tempY;
+			var tempX=vadrix.xpos, tempY=vadrix.ypos;
 			if (event.key === gamejs.event.K_LEFT) {
-				tempX = vadrix.xpos-16;
+				tempX --;
 			} else if (event.key === gamejs.event.K_RIGHT) {
-				tempX = vadrix.xpos +16;
+				tempX ++;
 			} else if (event.key === gamejs.event.K_DOWN) {
-				tempY = vadrix.ypos +16;
+				tempY ++;
 			}else if (event.key === gamejs.event.K_UP) {
-				tempY = vadrix.ypos -16;
+				tempY --;
 			}
-			if(coll.moveTest([tempX, tempY],[vadrix.xpos, vadrix.ypos]))
+			if(coll.moveTest([vadrix.xpos, vadrix.ypos],[tempX, tempY]))
 			{
 				vadrix.xpos=tempX;
 				vadrix.ypos=tempY;

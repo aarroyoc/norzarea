@@ -38,7 +38,7 @@ always: parseInt('1111', 2)
 };
  
 var CollisionMap = exports.CollisionMap = function(tmxMap) {
- 
+
 this.matrix = [];
 var i = tmxMap.height;
 while (i-->0) {
@@ -48,7 +48,6 @@ while (j-->0) {
 this.matrix[i][j] = BLOCK.none;
 }
 }
- 
 // set the matrix
 // later layers overwrite earlier layers
 tmxMap.layers.forEach(function(layer) {
@@ -57,7 +56,7 @@ if (layerBlock === 'never') {
 return;
 }
 layer.gids.forEach(function(row, j) {
-row.forEach(function(gid, j) {
+row.forEach(function(gid, i) {
 var blockString = 'none';
 if (layerBlock === 'always' && gid > 0) {
 blockString = 'always';
@@ -69,16 +68,17 @@ if (blockString.indexOf(',') > -1) {
 blockString.split(',').map(function(str) {
 return str.trim();
 }).forEach(function(str) {
+console.log("REGISTERED i="+i+", j="+j);
 this.matrix[i][j] |= BLOCK[str];
 }, this);
 } else {
-this.matrix[i][j] |= BLOCK[blockString];
+console.log("REGISTERED i="+i+", j="+j);
+this.matrix[i][j] |= BLOCK[blockString]; //HERE THERE'S AN ERROR
 }
 }
 }, this);
 }, this);
 }, this);
- 
 return this;
 }
 CollisionMap.prototype = {
