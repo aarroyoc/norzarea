@@ -3,6 +3,7 @@
 <head>
 	<title>Loading Norzarea...</title>
 	<meta charset="utf-8"/>
+	<script src="lib/i18next-1.7.1.min.js"></script>
 	<script src="lib/yabble.js"></script>
 	<script src="lib/gamejs.min.js"></script>
 	<script>
@@ -12,10 +13,39 @@
 </head>
 <body>
 	    <div id="gjs-fullscreen-toggle">
-        <div id="gjs-loader">
+        <div id="gjs-loader" data-i18n="app.loading" class="trans">
          Loading Norzarea...
         </div>
         <canvas id="gjs-canvas"></canvas>
     </div>
+	<script>
+	/*var options={
+		resPostPath: "./locales/__lng__",
+		sendType: "POST|GET",
+		sendMissingTo: "en"
+	};*/
+	var options={
+		resGetPath: "./locales/es/__ns__.json",
+		debug: true
+	};
+	console.log("ALL FINE");
+	var resources={
+		es: {
+				"app" : {
+							"loading" : "Cargando Norzarea.."
+						}
+			}
+	};
+	i18n.init(options,function(t){
+		console.log("app.loading says: "+i18n.t("app.loading"));
+	});
+	//i18n.init({resStore: resources});
+	
+	var trans=document.getElementsByClassName("trans");
+	for(var i=0;i<trans.length;i++)
+	{
+		trans[i].textContent=i18n.t("app.loading");
+	}
+	</script>
 </body>
 </html>
