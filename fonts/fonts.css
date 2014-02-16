@@ -1,0 +1,12 @@
+@font-face{
+	font-family: "Poller One";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Poller One"), local("PollerOne-Regular"), url("PollerOne.woff") format("woff")
+}
+@font-face{
+	font-family: "Ubuntu";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Ubuntu"), url("Ubuntu.woff") format("woff")
+}
