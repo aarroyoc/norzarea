@@ -72,7 +72,7 @@ console.log("REGISTERED i="+i+", j="+j);
 this.matrix[i][j] |= BLOCK[str];
 }, this);
 } else {
-console.log("REGISTERED i="+i+", j="+j);
+//console.log("REGISTERED i="+i+", j="+j);
 this.matrix[i][j] |= BLOCK[blockString]; //HERE THERE'S AN ERROR
 }
 }
