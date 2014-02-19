@@ -34,5 +34,13 @@ History.prototype={
 			enabled: true,
 			callback: callback
 		};
+	},
+	unregister: function(xpos, ypos){
+		this.history[xpos][ypos]={
+			enabled: false,
+			callback: function(){
+			
+			}
+		};
 	}
 }

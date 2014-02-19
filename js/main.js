@@ -19,6 +19,7 @@ gamejs.ready(function() {
 	/* Initialization */
    gamejs.display.setCaption('Norzarea');
    var display = gamejs.display.setMode([800, 400],gamejs.display.POINTERLOCK);
+   var director=new director.Director();
 	var his= new history.History(50,50);
    
    /* History */
