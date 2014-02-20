@@ -7,43 +7,43 @@ var collision = require("../collision");
 
 var FirstScene = exports.FirstScene = function(director)
 {
-//CONSTRUCTOR
+	//CONSTRUCTOR
 	var his= new history.History(50,50);
    
-   /* History */
+	/* History */
 	his.register(15,2,function(){
 		console.log("ACHIEVEMENT UNLOCKED");
 	});
 	/* Characters SpriteSheet */
-   var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
-   var vadrix=new sprite.Sprite();
-   vadrix.xpos=25;
-   vadrix.ypos=10;
-   vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
-   vadrix.image=characters.get(0);
-   vadrix.update=function()
-   {
+	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
+	var vadrix=new sprite.Sprite();
+	vadrix.xpos=25;
+	vadrix.ypos=10;
+	vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
+	vadrix.image=characters.get(0);
+	vadrix.update=function(){
 		vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
-   }
-      /* TMX Map */
-   
-   var map = new view.Map('./maps/house.tmx');
-   var coll=new collision.CollisionMap(map.getMap());
-   /* Fonts and text */
-   /* Show intro */
-   var font=new gamejs.font.Font("20px Poller One");
-   var title=font.render("Norzarea")
-   var copy=font.render("(C) 2014 Adrián Arroyo Calle");
-   var textBox=new gamejs.Surface([450,100]);
-   textBox.fill("white");
-   textBox.setAlpha(0.5);
-   textBox.blit(title);
-   textBox.blit(copy,[0,20]);
-   director.setTextSurface(textBox);
-   director.showText(true);
-   setTimeout(function(){
+	}
+	
+	/* TMX Map */
+	var map = new view.Map('./maps/house.tmx');
+	var coll=new collision.CollisionMap(map.getMap());
+	/* Fonts and text */
+	/* Show intro */
+	var font=new gamejs.font.Font("20px Poller One");
+	var title=font.render("Norzarea")
+	var copy=font.render("(C) 2014 Adrián Arroyo Calle");
+	var textBox=new gamejs.Surface([450,100]);
+	textBox.fill("white");
+	textBox.setAlpha(0.5);
+	textBox.blit(title);
+	textBox.blit(copy,[0,20]);
+	director.setTextSurface(textBox);
+	director.showText(true);
+	setTimeout(function(){
 		director.showText(false);
-   },5000);
+	},5000);
+	
 	this.handleEvent= function(event)
 	{
 		map.handle(event);
