@@ -1,6 +1,16 @@
 {
 	"app" : {
 			"loading" : "Cargando Norzarea..."
-		}
+		},
+	"first" : {
+		"goingToTalk" : "Voy a hablar con mi mujer",
+		"sheHasPlan" : "Seguro que ella tiene un plan",
+		"hiHusband" : "¡Hola marido! ha ocurrido algo horrible",
+		"lightGoesDown" : "La luz se ha ido, es terrible",
+		"telenovela" : "No puedo ver mi telenovela favorita",
+		"helpWife" : "Ve a repararlo, eres técnico",
+		"telenovelaMore" : "Hoy en 'Los tufos de Bahía Gaviota'",
+		"telenovelaContinuation" : "Daniela se casaba en secreto"
+	}
 
 }
