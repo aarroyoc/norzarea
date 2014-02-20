@@ -1,20 +1,35 @@
-var Director = exports.Directory = function()
+var gamejs=require("gamejs");
+var Director = exports.Director = function()
 {
 var onAir = false;
        var activeScene = null;
-
+	   var text={
+		show: false,
+		surface: new gamejs.Surface([450,100])
+	   }
+	   this.setTextSurface=function(newSurface){
+		text.surface=newSurface;
+	   }
+	   this.showText=function(enabled)
+	   {
+		text.show=enabled;
+	   }
        this.update = function(msDuration) {
           if (!onAir) return;
 
           if (activeScene.update) {
              activeScene.update(msDuration);
           }
+		  
+			
        }
 
        this.draw = function(display) {
           if (activeScene.draw) {
               activeScene.draw(display);
           }
+		  if(text.show)
+			display.blit(text.surface,[150,300]);
        };
 
        this.handleEvent = function(event) {
