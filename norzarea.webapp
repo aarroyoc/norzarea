@@ -3,16 +3,16 @@
 	"description" : "Norzarea ha sufrido un gran apagón. ¿Qué misterio aguarda dentrás de este hecho?",
 	"launch_path" : "/",
 	"icons" : {
-		"16" : "",
-		"30" : "",
-		"32" : "",
-		"48" : "",
-		"60" : "",
-		"64" : "",
-		"96" : "",
-		"128" : "",
-		"196" : "",
-		"256" : ""
+		"16" : "/img/icons/Narciso16.png",
+		"30" : "/img/icons/Narciso30.png",
+		"32" : "/img/icons/Narciso32.png",
+		"48" : "/img/icons/Narciso48.png",
+		"60" : "/img/icons/Narciso60.png",
+		"64" : "/img/icons/Narciso64.png",
+		"96" : "/img/icons/Narciso96.png",
+		"128" : "/img/icons/Narciso128.png",
+		"196" : "/img/icons/Narciso196.png",
+		"256" : "/img/icons/Narciso256.png"
 	},
 	"developer" : {
 		"name" : "Adrián Arroyo Calle",
