@@ -7,6 +7,9 @@ var onAir = false;
 		show: false,
 		surface: new gamejs.Surface([450,100])
 	   }
+	   this.isShowingText=function(){
+		return text.show;
+	   }
 	   this.setTextSurface=function(newSurface){
 		text.surface=newSurface;
 	   }

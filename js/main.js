@@ -5,7 +5,7 @@ var sprite = require("gamejs/sprite");
 var director = require("./director");
 var start = require("./scenes/start");
 
-gamejs.preload(["./img/start.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Characters/Humanoids0.png","./music/DVORAK.ogg","./img/space.jpg"]);
+gamejs.preload(["./img/start.png","./img/DawnHack/Characters/Felines0.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Characters/Humanoids0.png","./music/DVORAK.ogg","./img/space.jpg"]);
 
 gamejs.ready(function() {
 	/*var sound=new mixer.Sound("./music/DVORAK.ogg");

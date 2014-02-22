@@ -6,6 +6,18 @@ var TextSurface = exports.TextSurface = function(textArray, characterImage, char
 	{
 		return textBox;
 	}
+	this.put=function(director, time, callback)
+	{
+		director.setTextSurface(textBox);
+		director.showText(true);
+		setTimeout(function(){
+			director.showText(false);
+			if(callback!=undefined)
+			{
+				callback();
+			}
+		},time);
+	}
 	var font=new gamejs.font.Font("20px Poller One");
 	var fontCharacter=new gamejs.font.Font("15px Poller One");
 	var person=fontCharacter.render(characterName);

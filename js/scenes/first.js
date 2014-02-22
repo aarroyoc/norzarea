@@ -39,8 +39,15 @@ var FirstScene = exports.FirstScene = function(director)
 			},5000);
 		}
 	});
+	his.register(24,3,function(){
+		var tx=new text.TextSurface(["first.misifu","first.whereMisifu"],characters.get(0),"Vadrix Vandroso");
+		tx.put(director,5000,function(){
+			new text.TextSurface(["first.miau"],felines.get(0),"Misifú").put(director,1500);
+		});
+	});
 	/* Characters SpriteSheet */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
+	var felines=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Felines0.png",{width: 16, height: 16});
 	var vadrix=new sprite.Sprite();
 	vadrix.xpos=25;
 	vadrix.ypos=10;
@@ -49,9 +56,16 @@ var FirstScene = exports.FirstScene = function(director)
 	vadrix.update=function(){
 		vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
 	}
+	var people=new sprite.Group();
 	var wife=new sprite.Sprite();
 	wife.rect=new gamejs.Rect([15*16,2*16],[16,16]);
 	wife.image=characters.get(3);
+	people.add(wife);
+	
+	var misifu=new sprite.Sprite();
+	misifu.rect=new gamejs.Rect([24*16,3*16],[16,16]);
+	misifu.image=felines.get(1);
+	people.add(misifu);
 	
 	/* TMX Map */
 	var map = new view.Map('./maps/house.tmx');
@@ -69,8 +83,8 @@ var FirstScene = exports.FirstScene = function(director)
 	this.handleEvent= function(event)
 	{
 		map.handle(event);
-		if (event.type === gamejs.event.KEY_DOWN) {
-			//DO THINGS
+		if (!director.isShowingText() && event.type === gamejs.event.KEY_DOWN) {
+			//DO THINGS BUT TEXT BLOCKS EVENTS
 			var tempX=vadrix.xpos, tempY=vadrix.ypos;
 			if (event.key === gamejs.event.K_LEFT) {
 				tempX --;
@@ -101,7 +115,7 @@ var FirstScene = exports.FirstScene = function(director)
 	{
 		display.clear();
 		map.draw(display);
-		wife.draw(display);
+		people.draw(display);
 		vadrix.draw(display);
 		/*if(text.show)
 			display.blit(text.surface,[150,300]);*/
