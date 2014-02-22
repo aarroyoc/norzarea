@@ -6,6 +6,7 @@
 	<script src="lib/i18next-1.7.1.min.js"></script>
 	<script src="lib/yabble.js"></script>
 	<script src="lib/gamejs.min.js"></script>
+	<script src="lib/gamecontroller.min.js"></script>
 	<link rel="stylesheet" href="fonts/fonts.css" type="text/css"/>
 	<script>
 	require.setModuleRoot("./js/");
@@ -32,6 +33,28 @@
 	i18n.init(options,function(t){
 		document.getElementById("gjs-loader").textContent=i18n.t("app.loading");
 	});
+	</script>
+	<script>
+	if("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch)
+	{
+		GameController.init({
+			left: {
+				type: "dpad",
+				up: {
+					touchMove: function(details){
+						console.log(details);
+					}
+				},
+				right:
+				down:
+				left: {
+					touchMove: function(details){
+						console.log(details);
+					}
+				}
+			}
+		});
+	}
 	</script>
 </body>
 </html>
