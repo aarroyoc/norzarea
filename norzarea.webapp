@@ -1,0 +1,31 @@
+{
+	"name" : "Norzarea",
+	"description" : "Norzarea ha sufrido un gran apagón. ¿Qué misterio aguarda dentrás de este hecho?",
+	"launch_path" : "/",
+	"icons" : {
+		"16" : "",
+		"30" : "",
+		"32" : "",
+		"48" : "",
+		"60" : "",
+		"64" : "",
+		"96" : "",
+		"128" : "",
+		"196" : "",
+		"256" : ""
+	},
+	"developer" : {
+		"name" : "Adrián Arroyo Calle",
+		"url" : "http://plus.google.com/+AdriánArroyoCalle"
+	},
+	"default_locale" : "es",
+	"fullscreen" : "true",
+	"locales" : {
+		"en" : {
+			"description" : "Norzarea"
+		}
+	},
+	"orientation" : "landscape",
+	"version" : "0.1"
+
+}
