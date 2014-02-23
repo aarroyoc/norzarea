@@ -83,16 +83,16 @@ var FirstScene = exports.FirstScene = function(director)
 	this.handleEvent= function(event)
 	{
 		map.handle(event);
-		if (!director.isShowingText() && event.type === gamejs.event.KEY_DOWN) {
+		if (!director.isShowingText() && event.type === gamejs.event.KEY_DOWN || event.type == "TOUCH") {
 			//DO THINGS BUT TEXT BLOCKS EVENTS
 			var tempX=vadrix.xpos, tempY=vadrix.ypos;
-			if (event.key === gamejs.event.K_LEFT) {
+			if (event.key === gamejs.event.K_LEFT || event.key == "LEFT") {
 				tempX --;
-			} else if (event.key === gamejs.event.K_RIGHT) {
+			} else if (event.key === gamejs.event.K_RIGHT || event.key == "RIGHT") {
 				tempX ++;
-			} else if (event.key === gamejs.event.K_DOWN) {
+			} else if (event.key === gamejs.event.K_DOWN || event.key == "DOWN") {
 				tempY ++;
-			}else if (event.key === gamejs.event.K_UP) {
+			}else if (event.key === gamejs.event.K_UP || event.key == "UP") {
 				tempY --;
 			}
 			if(coll.moveTest([vadrix.xpos, vadrix.ypos],[tempX, tempY]))

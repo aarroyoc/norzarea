@@ -2,6 +2,7 @@ var gamejs = require('gamejs');
 var view = require('./view');
 var mixer = require("gamejs/mixer");
 var sprite = require("gamejs/sprite");
+var event = require("gamejs/event");
 var director = require("./director");
 var start = require("./scenes/start");
 
@@ -17,7 +18,7 @@ gamejs.ready(function() {
    var dir=new director.Director();
    var scene=new start.StartScene(dir);
    dir.start(scene);
-   
+	
    /* Events for every object */
    gamejs.onEvent(function(event) {
 		dir.handleEvent(event);
@@ -27,4 +28,40 @@ gamejs.ready(function() {
 		dir.update(msDuration);
 		dir.draw(display);
    });
+
+   	if("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch)
+	{
+GameController.init( { 
+    left: {
+        position: { left: '45%', bottom: '45%' }, 
+        dpad: { 
+            up: {width: "25%", height: "25%", touchStart: function(){
+				event._CALLBACK.trigger({
+					type: "TOUCH",
+					key: "UP"
+				});
+			}}, 
+            down: {width: "25%", height: "25%", touchStart: function(){
+				event._CALLBACK.trigger({
+					type: "TOUCH",
+					key: "DOWN"
+				});
+			}}, 
+            left: { width: '25%', height: '25%', touchStart: function(){
+				event._CALLBACK.trigger({
+					type: "TOUCH",
+					key: "LEFT"
+				});
+			} }, 
+            right: { width: '25%', height: '25%', touchStart: function(){
+				event._CALLBACK.trigger({
+					type: "TOUCH",
+					key: "RIGHT"
+				});
+			} } 
+        } 
+    }, 
+    right: false
+} );
+	}
 });

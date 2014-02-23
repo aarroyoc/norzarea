@@ -39,36 +39,5 @@
 		document.getElementById("gjs-loader").textContent=i18n.t("app.loading");
 	});
 	</script>
-	<script>
-	if("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch)
-	{
-		GameController.init({
-			left: {
-				type: "dpad",
-				up: {
-					touchMove: function(details){
-						//LATER CREATE KEY EVENTS
-						console.log(details);
-					}
-				},
-				right: {
-					touchMove: function(details){
-						console.log(details);
-					}
-				},
-				down: {
-					touchMove: function(details){
-						console.log(details);
-					}
-				},
-				left: {
-					touchMove: function(details){
-						console.log(details);
-					}
-				}
-			}
-		});
-	}
-	</script>
 </body>
 </html>
