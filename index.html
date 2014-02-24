@@ -7,6 +7,7 @@
 	<script src="lib/yabble.js"></script>
 	<script src="lib/gamejs.min.js"></script>
 	<script src="lib/gamecontroller.min.js"></script>
+	<script src="lib/start.js"></script>
 	<link rel="stylesheet" href="fonts/fonts.css" type="text/css"/>
 	<link rel="shortcut icon" sizes="16x16" href="img/icons/Narciso16.png" type="image/png"/>
 	<link rel="shortcut icon" sizes="32x32" href="img/icons/Narciso32.png" type="image/png"/>
@@ -17,10 +18,6 @@
 	<link rel="apple-touch-startup-image" href="img/icons/Narciso256.png"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script>
-	require.setModuleRoot("./js/");
-	require.run("main");
-	</script>
 </head>
 <body>
 	    <div id="gjs-fullscreen-toggle">
@@ -29,19 +26,5 @@
         </div>
         <canvas id="gjs-canvas"></canvas>
     </div>
-	<script>
-	/*var options={
-		resPostPath: "./locales/__lng__",
-		sendType: "POST|GET",
-		sendMissingTo: "en"
-	};*/
-	var options={
-		resGetPath: "./locales/__lng__/__ns__.json",
-		debug: false
-	};
-	i18n.init(options,function(t){
-		document.getElementById("gjs-loader").textContent=i18n.t("app.loading");
-	});
-	</script>
 </body>
 </html>

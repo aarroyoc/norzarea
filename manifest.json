@@ -1,0 +1,19 @@
+{
+  "name": "Norzarea",
+  "description": "Norzarea ha sufrido un gran apagón. ¿Qué misterio aguarda dentrás de este hecho?",
+  "version": "0.1",
+  "permissions" : ["webview"],
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    },
+	"sandbox" : {
+		"pages" : ["index.html"],
+		"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' 'unsafe-eval'"
+	}
+  },
+  "icons": { "16": "img/icons/Narciso16.png", "128": "img/icons/Narciso128.png" },
+  "offline_enabled" : true,
+  "minimum_chrome_version": "23",
+  "manifest_version" : 2
+}
