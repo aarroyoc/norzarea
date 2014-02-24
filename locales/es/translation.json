@@ -2,6 +2,11 @@
 	"app" : {
 			"loading" : "Cargando Norzarea..."
 		},
+	"generic" : {
+		"cartel" : "El cartel dice: ",
+		"suspensive" : "...",
+		"obtained" : "Has obtenido: "
+	},
 	"first" : {
 		"goingToTalk" : "¡Mi mujer está gritando!",
 		"sheHasPlan" : "Seguro que ha pasado algo",
@@ -13,7 +18,23 @@
 		"telenovelaContinuation" : "Daniela se casaba en secreto",
 		"misifu" : "Anda, si es Misifú",
 		"whereMisifu" : "¿Dónde te habías metido?",
-		"miau" : "¡Miau!"
+		"miau" : "¡Miau!",
+		"whyExit" : "¿Por qué debería salir?",
+		"exit" : "Vayamos a la central eléctrica entonces"
+	},
+	"training" : {
+		"mojo" : "'Bienvenidos a Casa Mojo'",
+		"mojoWelcome" : "Hola desconcido. Soy Mojo, el terrorista.",
+		"mojoExplains" : "Me dedico a la fabricación de armas.",
+		"mojoHelps" : "¿Te gustaría que te enseñase a atacar?",
+		"vadrixAccepts" : "Bueno, ¿por qué no?",
+		"mojoTutorial0" : "Primero, debes coger ese cuchillo",
+		"mojoTutorial1" : "Ataca con ESPACIO",
+		"mojoTutorial2" : "Como ves atacas en la dirección de tu último movimiento",
+		"vadrixComments" : "Es realmente sencillo, pero yo no soy terrorista.",
+		"mojoTutorial3" : "Lo usarás en un futuro, estoy seguro.",
+		"mojoTutorial4" : "Para terminar rompe esos muebles viejos de ahí",
+		"mojoTutorial5" : "Muy bien, eres un buen aprendiz. Ahora te dejo solo",
+		"knife" : "Cuchillo básico Nivel I"
 	}
-
 }

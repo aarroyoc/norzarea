@@ -18,7 +18,7 @@ var TextSurface = exports.TextSurface = function(textArray, characterImage, char
 			}
 		},time);
 	}
-	var font=new gamejs.font.Font("20px Poller One");
+	var font=new gamejs.font.Font("20px UbuntuCondensed");
 	var fontCharacter=new gamejs.font.Font("15px Poller One");
 	var person=fontCharacter.render(characterName);
 	var textBox=new gamejs.Surface([450,100]);
@@ -29,7 +29,7 @@ var TextSurface = exports.TextSurface = function(textArray, characterImage, char
 	for(var i=0;i<textArray.length;i++)
 	{
 		var render=font.render(i18n.t(textArray[i]));
-		textBox.blit(render,[0,(i*20)+20]);
+		textBox.blit(render,[0,(i*20)+25]);
 	}
 	return this;
 }

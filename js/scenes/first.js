@@ -5,6 +5,7 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
+var training = require("./training");
 
 var FirstScene = exports.FirstScene = function(director)
 {
@@ -28,7 +29,7 @@ var FirstScene = exports.FirstScene = function(director)
 				director.showText(true);
 				setTimeout(function(){
 					director.showText(false);
-				},5000);
+				},4000);
 			},10000);
 		}else{
 			var tx=new text.TextSurface(["first.telenovelaMore","first.telenovelaContinuation"],characters.get(3),"Vandraxa de Azpazeta");
@@ -44,6 +45,19 @@ var FirstScene = exports.FirstScene = function(director)
 		tx.put(director,5000,function(){
 			new text.TextSurface(["first.miau"],felines.get(0),"Misifú").put(director,1500);
 		});
+	});
+	his.register(30,7,function(){
+		if(sceneProgress.firstTalk)
+		{
+			var tx=new text.TextSurface(["first.exit"],characters.get(0),"Vadrix Vandroso").put(director,1500,function(){
+				director.replaceScene(new training.TrainingScene(director));
+			});
+		}else{
+			var tx=new text.TextSurface(["first.whyExit"],characters.get(0),"Vadrix Vandroso").put(director,1500,function(){
+				
+			});
+		}
+	
 	});
 	/* Characters SpriteSheet */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});

@@ -10,3 +10,9 @@
 	font-weight: 400;
 	src: local("Ubuntu"), url("Ubuntu.woff") format("woff")
 }
+@font-face{
+	font-family: "UbuntuCondensed";
+	font-style: normal;
+	font-weight: 400;
+	src: url("UbuntuCondensed.woff") format("woff")
+}
