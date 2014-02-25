@@ -19,12 +19,12 @@ var FirstScene = exports.FirstScene = function(director)
 		if(sceneProgress.firstTalk===false)
 		{
 			sceneProgress.firstTalk=true;
-			var tx=new text.TextSurface(["first.hiHusband","first.lightGoesDown","first.telenovela"],characters.get(3),"Vandraxa de Azpazeta");
+			var tx=new text.TextSurface(["first.hiHusband","first.lightGoesDown","first.telenovela"],characters.get(3),"characters.vandraxa");
 			director.setTextSurface(tx.getSurface());
 			director.showText(true);
 			setTimeout(function(){
 				director.showText(false);
-				tx=new text.TextSurface(["first.helpWife"],characters.get(3),"Vandraxa de Azpazeta");
+				tx=new text.TextSurface(["first.helpWife"],characters.get(3),"characters.vandraxa");
 				director.setTextSurface(tx.getSurface());
 				director.showText(true);
 				setTimeout(function(){
@@ -32,7 +32,7 @@ var FirstScene = exports.FirstScene = function(director)
 				},4000);
 			},10000);
 		}else{
-			var tx=new text.TextSurface(["first.telenovelaMore","first.telenovelaContinuation"],characters.get(3),"Vandraxa de Azpazeta");
+			var tx=new text.TextSurface(["first.telenovelaMore","first.telenovelaContinuation"],characters.get(3),"characters.vandraxa");
 			director.setTextSurface(tx.getSurface());
 			director.showText(true);
 			setTimeout(function(){
@@ -41,19 +41,19 @@ var FirstScene = exports.FirstScene = function(director)
 		}
 	});
 	his.register(24,3,function(){
-		var tx=new text.TextSurface(["first.misifu","first.whereMisifu"],characters.get(0),"Vadrix Vandroso");
+		var tx=new text.TextSurface(["first.misifu","first.whereMisifu"],characters.get(0),"characters.vadrix");
 		tx.put(director,5000,function(){
-			new text.TextSurface(["first.miau"],felines.get(0),"Misifú").put(director,1500);
+			new text.TextSurface(["first.miau"],felines.get(0),"characters.misifu").put(director,1500);
 		});
 	});
 	his.register(30,7,function(){
 		if(sceneProgress.firstTalk)
 		{
-			var tx=new text.TextSurface(["first.exit"],characters.get(0),"Vadrix Vandroso").put(director,1500,function(){
+			var tx=new text.TextSurface(["first.exit"],characters.get(0),"characters.vadrix").put(director,1500,function(){
 				director.replaceScene(new training.TrainingScene(director));
 			});
 		}else{
-			var tx=new text.TextSurface(["first.whyExit"],characters.get(0),"Vadrix Vandroso").put(director,1500,function(){
+			var tx=new text.TextSurface(["first.whyExit"],characters.get(0),"characters.vadrix").put(director,1500,function(){
 				
 			});
 		}
@@ -86,7 +86,7 @@ var FirstScene = exports.FirstScene = function(director)
 	var coll=new collision.CollisionMap(map.getMap());
 	/* Fonts and text */
 	/* Show intro */
-	var tx=new text.TextSurface(["first.goingToTalk","first.sheHasPlan"],characters.get(0),"Vadrix Vandroso");
+	var tx=new text.TextSurface(["first.goingToTalk","first.sheHasPlan"],characters.get(0),"characters.vadrix");
 	director.setTextSurface(tx.getSurface());
 	director.showText(true);
 	setTimeout(function(){

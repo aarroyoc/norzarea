@@ -2,6 +2,13 @@
 	"app" : {
 			"loading" : "Cargando Norzarea..."
 		},
+	"characters" : {
+		"vadrix" : "Vadrix Vandroso",
+		"vandraxa" : "Vandraxa de Azpazeta",
+		"misifu" : "Misifú",
+		"mojo" : "Mojo, el terrorista",
+		"object" : "Objeto"
+	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
 		"suspensive" : "...",
@@ -33,7 +40,7 @@
 		"mojoTutorial2" : "Como ves atacas en la dirección de tu último movimiento",
 		"vadrixComments" : "Es realmente sencillo, pero yo no soy terrorista.",
 		"mojoTutorial3" : "Lo usarás en un futuro, estoy seguro.",
-		"mojoTutorial4" : "Para terminar rompe esos muebles viejos de ahí",
+		"mojoTutorial4" : "Para terminar rompe ese muebles viejo de ahí",
 		"mojoTutorial5" : "Muy bien, eres un buen aprendiz. Ahora te dejo solo",
 		"knife" : "Cuchillo básico Nivel I"
 	}

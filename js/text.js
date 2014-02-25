@@ -20,7 +20,7 @@ var TextSurface = exports.TextSurface = function(textArray, characterImage, char
 	}
 	var font=new gamejs.font.Font("20px UbuntuCondensed");
 	var fontCharacter=new gamejs.font.Font("15px Poller One");
-	var person=fontCharacter.render(characterName);
+	var person=fontCharacter.render(i18n.t(characterName));
 	var textBox=new gamejs.Surface([450,100]);
 	textBox.fill("white");
 	textBox.setAlpha(0.25);

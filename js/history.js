@@ -19,8 +19,8 @@ var History = exports.History = function(xMax, yMax){
 	return this;
 }
 History.prototype={
-	execute: function(xpos, ypos){
-		this.history[xpos][ypos].callback();
+	execute: function(xpos, ypos,data){
+		this.history[xpos][ypos].callback(data);
 	},
 	has: function(xpos, ypos){
 		if(this.history[xpos][ypos].enabled){
