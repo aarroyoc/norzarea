@@ -61,7 +61,20 @@ GameController.init( {
 			} } 
         } 
     }, 
-    right: false
+    right: {
+		type: "buttons",
+		position: { right: "25%", bottom: "45%"},
+		buttons: [{
+			label: "ATTACK",
+			fontSize: 13,
+			touchStart: function(){
+				event._CALLBACK.trigger({
+					type: "TOUCH",
+					key: "SPACE"
+				});
+			}
+		},false,false,false]
+	}
 } );
 	}
 });

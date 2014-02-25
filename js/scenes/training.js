@@ -111,7 +111,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 				tempY --;
 				sceneProgress.lastMovement=gamejs.event.K_UP;
 			}
-			if(event.key === gamejs.event.K_SPACE)
+			if(event.key === gamejs.event.K_SPACE || event.key == "SPACE")
 			{
 				var weaponEffect=new sprite.Sprite();
 				var newX = vadrix.xpos, newY = vadrix.ypos;
