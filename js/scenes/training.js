@@ -11,6 +11,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 	localStorage.progress="1";
 	//CONSTRUCTOR
 	var knife=new sprite.Sprite();
+	var gold=new sprite.Sprite();
 	var sceneProgress={
 		talkWithMojo: false,
 		getKnife: false,
@@ -41,6 +42,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 		{
 			new text.TextSurface(["generic.obtained","training.knife"],weaponsImage.get(0),"characters.object").put(director,1500,function(){
 				sceneProgress.getKnife=true;
+				localStorage.weapon="0";
 				weapons.remove(knife);
 				setTimeout(function(){
 					new text.TextSurface(["training.mojoTutorial2"],characters.get(152),"characters.mojo").put(director,2000,function(){
@@ -68,11 +70,21 @@ var TrainingScene = exports.TrainingScene = function(director)
 			});
 		}
 	});
+	his.register(33,4,function(){
+		new text.TextSurface(["generic.obtained","training.gold"],moneyImage.get(5),"characters.object").put(director,2000,function(){
+			var money=parseInt(localStorage.money);
+			money+=100;
+			localStorage.money=money+"";
+			furniture.remove(gold);
+		});
+	
+	});
 	/* Characters SpriteSheet */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
 	var weaponsImage=new spritesheet.SpriteSheet("./img/DawnHack/Items/ShortWeapons.png",{width: 16, height: 16});
 	var effectsImage=new spritesheet.SpriteSheet("./img/DawnHack/Objects/Effects0.png",{width: 16, height: 16});
 	var furnitureImage=new spritesheet.SpriteSheet("./img/DawnHack/Objects/Furniture0.png",{width: 16, height: 16});
+	var moneyImage=new spritesheet.SpriteSheet("./img/DawnHack/Items/Money.png",{width: 16, height: 16});
 	var vadrix=new sprite.Sprite();
 	vadrix.xpos=0;
 	vadrix.ypos=10;
@@ -87,9 +99,9 @@ var TrainingScene = exports.TrainingScene = function(director)
 	var mojo=new sprite.Sprite();
 	mojo.rect=new gamejs.Rect([25*16,12*16],[16,16]);
 	mojo.image=characters.get(152);
-	//var gold=new sprite.Sprite();
-	//gold.rect=new gamejs.Rect();
-	
+	gold.rect=new gamejs.Rect([33*16,4*16],[16,16]);
+	gold.image=moneyImage.get(5);
+	furniture.add(gold);
 	
 	/* TMX Map */
 	var map = new view.Map('./maps/training.tmx');

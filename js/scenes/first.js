@@ -9,7 +9,12 @@ var training = require("./training");
 
 var FirstScene = exports.FirstScene = function(director)
 {
-	localStorage.progress="0";
+	localStorage.progress="0"; //NONE
+	localStorage.money="0"; //VOID
+	localStorage.weapon="17"; //VOID
+	localStorage.life="5"; //FULL
+	localStorage.potion="29"; //VOID
+	localStorage.book="17"; //VOID
 	//CONSTRUCTOR
 	var sceneProgress={
 		firstTalk: false

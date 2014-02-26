@@ -1,4 +1,5 @@
 var gamejs=require("gamejs");
+var guiM = require("./gui");
 var Director = exports.Director = function()
 {
 var onAir = false;
@@ -7,6 +8,7 @@ var onAir = false;
 		show: false,
 		surface: new gamejs.Surface([450,100])
 	   }
+		var gui=new guiM.GUI();
 	   this.isShowingText=function(){
 		return text.show;
 	   }
@@ -23,7 +25,7 @@ var onAir = false;
           if (activeScene.update) {
              activeScene.update(msDuration);
           }
-		  
+		  gui.update();
 			
        }
 
@@ -33,6 +35,7 @@ var onAir = false;
           }
 		  if(text.show)
 			display.blit(text.surface,[150,300]);
+			gui.getGroup().draw(display);
        };
 
        this.handleEvent = function(event) {
