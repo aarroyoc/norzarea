@@ -12,7 +12,8 @@
 	"generic" : {
 		"cartel" : "El cartel dice: ",
 		"suspensive" : "...",
-		"obtained" : "Has obtenido: "
+		"obtained" : "Has obtenido: ",
+		"void" : "Parece que no hay nadie..."
 	},
 	"first" : {
 		"goingToTalk" : "¡Mi mujer está gritando!",
@@ -44,5 +45,9 @@
 		"mojoTutorial5" : "Muy bien, eres un buen aprendiz. Ahora te dejo solo",
 		"knife" : "Cuchillo básico Nivel I",
 		"gold" : "100 monedas de Adrianistaní"
+	},
+	"city" : {
+		"king" : "'Sede real",
+		"kinTimetables" : "Horario: 9:00 a 9:01 los jueves'"
 	}
 }

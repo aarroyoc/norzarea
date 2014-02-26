@@ -5,6 +5,7 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
+var city = require("./city");
 
 var TrainingScene = exports.TrainingScene = function(director)
 {
@@ -15,6 +16,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 	var sceneProgress={
 		talkWithMojo: false,
 		getKnife: false,
+		tutorialFinished: false,
 		latestMovement: gamejs.event.K_LEFT
 	};
 	var his= new history.History(50,50);
@@ -59,7 +61,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 										furniture.remove(wardrobe);
 										his.unregister(23,15);
 										new text.TextSurface(["training.mojoTutorial5"],characters.get(152),"characters.mojo").put(director,2000,function(){
-										
+											sceneProgress.tutorialFinished=true;
 										});
 									}
 								});
@@ -78,6 +80,18 @@ var TrainingScene = exports.TrainingScene = function(director)
 			furniture.remove(gold);
 		});
 	
+	});
+	his.register(49,10,function(){
+		if(sceneProgress.tutorialFinished===true)
+		{
+			director.replaceScene(new city.CityScene(director));
+		}
+	});
+	his.register(49,11,function(){
+		if(sceneProgress.tutorialFinished===true)
+		{
+			director.replaceScene(new city.CityScene(director));
+		}
 	});
 	/* Characters SpriteSheet */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
