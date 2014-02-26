@@ -8,6 +8,7 @@ var text = require("../text");
 
 var TrainingScene = exports.TrainingScene = function(director)
 {
+	localStorage.progress="1";
 	//CONSTRUCTOR
 	var knife=new sprite.Sprite();
 	var sceneProgress={
@@ -51,7 +52,7 @@ var TrainingScene = exports.TrainingScene = function(director)
 								wardrobe.image=furnitureImage.get(8);
 								furniture.add(wardrobe);
 								his.register(23,15,function(data){
-									if(data.type="attack")
+									if(data.type=="attack")
 									{
 										furniture.remove(wardrobe);
 										his.unregister(23,15);
@@ -86,6 +87,8 @@ var TrainingScene = exports.TrainingScene = function(director)
 	var mojo=new sprite.Sprite();
 	mojo.rect=new gamejs.Rect([25*16,12*16],[16,16]);
 	mojo.image=characters.get(152);
+	//var gold=new sprite.Sprite();
+	//gold.rect=new gamejs.Rect();
 	
 	
 	/* TMX Map */

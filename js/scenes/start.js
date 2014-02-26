@@ -1,5 +1,6 @@
 var gamejs = require('gamejs');
 var firstScene = require("./first");
+var training = require("./training");
 
 var StartScene = exports.StartScene = function(director)
 {
@@ -7,7 +8,13 @@ var StartScene = exports.StartScene = function(director)
 	{
 		if(event.type === gamejs.event.MOUSE_UP || event.type === gamejs.event.KEY_DOWN || event.type == "TOUCH")
 		{
-			director.replaceScene(new firstScene.FirstScene(director));
+			switch(parseInt(localStorage.progress))
+			{
+				case 0: director.replaceScene(new firstScene.FirstScene(director));break;
+				case 1: director.replaceScene(new training.TrainingScene(director));break;
+				default: director.replaceScene(new firstScene.FirstScene(director));
+			}
+			
 		}
 	}
 	this.draw=function(display)

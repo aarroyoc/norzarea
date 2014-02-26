@@ -9,6 +9,7 @@ var training = require("./training");
 
 var FirstScene = exports.FirstScene = function(director)
 {
+	localStorage.progress="0";
 	//CONSTRUCTOR
 	var sceneProgress={
 		firstTalk: false
