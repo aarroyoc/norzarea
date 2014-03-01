@@ -6,13 +6,25 @@ var event = require("gamejs/event");
 var director = require("./director");
 var start = require("./scenes/start");
 
-gamejs.preload(["./img/start.png","./img/DawnHack/Items/Books.png","./img/DawnHack/Items/Potions.png","./img/DawnHack/Items/Money.png","./img/DawnHack/Objects/Foliage.png","./img/DawnHack/Characters/Player0.png","./img/DawnHack/Characters/Felines0.png","./img/DawnHack/Items/ShortWeapons.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png","./img/DawnHack/Objects/Effects0.png","./img/DawnHack/GUI/GUI0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Characters/Humanoids0.png","./music/DVORAK.ogg","./img/space.jpg"]);
+gamejs.preload(["./img/start.png","./img/DawnHack/Items/Books.png","./img/DawnHack/Items/Potions.png","./img/DawnHack/Items/Money.png","./img/DawnHack/Objects/Foliage.png","./img/DawnHack/Characters/Player0.png","./img/DawnHack/Characters/Felines0.png","./img/DawnHack/Items/ShortWeapons.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png","./img/DawnHack/Objects/Effects0.png","./img/DawnHack/GUI/GUI0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Characters/Humanoids0.png","./img/space.jpg"]);
 
 gamejs.ready(function() {
-	/*var sound=new mixer.Sound("./music/DVORAK.ogg");
-	sound.play(true);
-	*/
+	//var sound=new mixer.Sound("./music/MA_VLAST.ogg");
+	//sound.play(true);
+	/* Sound system */
 	/* Initialization */
+	var audioList=["./music/MA_VLAST.ogg","./music/DVORAK.ogg","./music/BEETHOVEN.ogg"];
+	var audioTrack=0;
+	var sound=new Audio();
+	sound.src=audioList[audioTrack];
+	sound.play();
+	sound.addEventListener("ended",function(){
+		audioTrack++;
+		if(audioTrack==3)
+			audioTrack=0;
+		sound.src=audioList[audioTrack];
+		sound.play();
+	});
    gamejs.display.setCaption('Norzarea');
    var display = gamejs.display.setMode([800, 400],gamejs.display.POINTERLOCK);
    var dir=new director.Director();
