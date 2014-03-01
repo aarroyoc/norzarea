@@ -10,6 +10,7 @@ var CityScene = exports.CityScene = function(director)
 {
 	localStorage.progress="2";
 	var sceneProgress={
+		talkWithGenie: false,
 		lastMovement: gamejs.event.K_LEFT
 	};
 	var his=new history.History(50,50);
@@ -18,6 +19,87 @@ var CityScene = exports.CityScene = function(director)
 		new text.TextSurface(["generic.cartel","city.king","city.kingTimetables"],characters.get(0),"characters.vadrix").put(director,2500,function(){
 			new text.TextSurface(["generic.void"],characters.get(0),"characters.vadrix").put(director,2000);
 		});
+	});
+	his.register(23,10,function(){
+		new text.TextSurface(["generic.cartel","city.biblio"],characters.get(0),"characters.vadrix").put(director,2000,function(){
+		
+		});
+	});
+	his.register(29,10,function(){
+		new text.TextSurface(["generic.cartel","city.taberna"],characters.get(0),"characters.vadrix").put(director,2000,function(){
+		
+		});
+	});
+	his.register(37,9,function(){
+		new text.TextSurface(["generic.cartel","city.monasterio"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+			new text.TextSurface(["city.circulos"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+			
+			});
+		});
+	});
+	his.register(18,4,function(){
+		new text.TextSurface(["generic.cartel","city.electric"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+			
+		});
+	});
+	his.register(20,3,function(){
+		new text.TextSurface(["generic.closed"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+		
+		});
+	});
+	his.register(40,4,function(){
+		new text.TextSurface(["city.secretDoor"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+		
+		});
+	});
+	his.register(29,2,function(){
+		if(!sceneProgress.talkWithGenie)
+		{
+			new text.TextSurface(["city.genieAppears"],characters.get(17),"characters.amatulfo").put(director,3000,function(){
+				new text.TextSurface(["city.vadrixAskGenie0"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+					new text.TextSurface(["city.genieResponse0"],characters.get(17),"characters.amatulfo").put(director,3000,function(){
+						new text.TextSurface(["city.vadrixAskGenie"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+							new text.TextSurface(["city.genieResponse"],characters.get(17),"characters.amatulfo").put(director,3000,function(){
+								new text.TextSurface(["city.vadrixAskGenie2"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+									new text.TextSurface(["city.genieResponse2"],characters.get(17),"characters.amatulfo").put(director,3000,function(){
+										new text.TextSurface(["city.vadrixAskGenie3"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+											new text.TextSurface(["city.genieResponse3","city.genieResponse3b","city.genieResponse3c"],characters.get(17),"characters.amatulfo").put(director,6000,function(){
+												new text.TextSurface(["city.vadrixAskGenie4"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+													new text.TextSurface(["city.genieResponse4","city.genieResponse4b"],characters.get(17),"characters.amatulfo").put(director,4000,function(){
+														sceneProgress.talkWithGenie=true;
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}else{
+			new text.TextSurface(["city.genieWelcomeBack","city.genieWelcomeBack2"],characters.get(17),"characters.amatulfo").put(director,4000,function(){
+				var money=parseInt(localStorage.money);
+				if(money>=50)
+				{
+					money-=50;
+					localStorage.money=money+"";
+					var random=Math.floor(Math.random() * 6) +1;
+					var phrase="city.geniePhrase"+random;
+					new text.TextSurface([phrase],characters.get(17),"characters.amatulfo").put(director,5000,function(){
+						new text.TextSurface(["generic.correct"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+						
+						});
+					});
+				}else{
+					new text.TextSurface(["generic.notEnough"],characters.get(17),"characters.amatulfo").put(director,2500,function(){
+					
+					});
+				}
+				
+			});
+		}
 	});
 	/* SpriteSheets */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});

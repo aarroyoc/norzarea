@@ -27,9 +27,9 @@ var TrainingScene = exports.TrainingScene = function(director)
 	his.register(25,12,function(){
 		if(!sceneProgress.talkWithMojo)
 		{
-			new text.TextSurface(["training.mojoWelcome","training.mojoExplains","training.mojoHelps"],characters.get(152),"characters.mojo").put(director,4000,function(){
-				new text.TextSurface(["generic.suspensive","training.vadrixAccepts"],characters.get(0),"characters.vadrix").put(director,3000,function(){
-					new text.TextSurface(["training.mojoTutorial0","training.mojoTutorial1"],characters.get(152),"characters.mojo").put(director,3000,function(){
+			new text.TextSurface(["training.mojoWelcome","training.mojoExplains","training.mojoHelps"],characters.get(152),"characters.mojo").put(director,5000,function(){
+				new text.TextSurface(["generic.suspensive","training.vadrixAccepts"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+					new text.TextSurface(["training.mojoTutorial0","training.mojoTutorial1"],characters.get(152),"characters.mojo").put(director,3500,function(){
 						knife.rect=new gamejs.Rect([21*16,13*16],[16,16]);
 						knife.image=weaponsImage.get(0);
 						sceneProgress.talkWithMojo=true;

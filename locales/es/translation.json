@@ -7,13 +7,17 @@
 		"vandraxa" : "Vandraxa de Azpazeta",
 		"misifu" : "Misifú",
 		"mojo" : "Mojo, el terrorista",
-		"object" : "Objeto"
+		"object" : "Objeto",
+		"amatulfo" : "Amatulfo, el genio místico"
 	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
 		"suspensive" : "...",
 		"obtained" : "Has obtenido: ",
-		"void" : "Parece que no hay nadie..."
+		"void" : "Parece que no hay nadie...",
+		"closed" : "Parece cerrado",
+		"notEnough" : "No tienes suficiente",
+		"correct" : "Correcto"
 	},
 	"first" : {
 		"goingToTalk" : "¡Mi mujer está gritando!",
@@ -48,6 +52,34 @@
 	},
 	"city" : {
 		"king" : "'Sede real",
-		"kinTimetables" : "Horario: 9:00 a 9:01 los jueves'"
+		"kingTimetables" : "Horario: 9:00 a 9:01 los jueves'",
+		"biblio" : "'Librería de Uno'",
+		"taberna" : "'Taberna de Pablo'",
+		"monasterio" : "'Monasterio de Santo Klolo'",
+		"circulos" : "¡Qué raro! No es la Iglesia de los 3 círculos",
+		"electric" : "'Central Eléctrica Encisa Energía'",
+		"secretDoor" : "¡Anda, era una puerta secreta!",
+		"genieAppears" : "HOLA, HOLA, HOLA, soy Amatulfo, el genio místico",
+		"vadrixAskGenie0" : "Primero: quiero un sándwich mixto, después...",
+		"genieResponse0" : "Jaja, yo no soy de esos genios que dan deseos",
+		"vadrixAskGenie" : "¿Entonces? ¿Teletransportas gente? ¿Regalas dinero?",
+		"genieResponse" : "Jaja, no querido amigo. Yo doy consejos",
+		"vadrixAskGenie2" : "¡¿Consejos?! Esos ya me los da mi suegra",
+		"genieResponse2" : "Pero yo doy consejos útiles",
+		"vadrixAskGenie3" : "Entonces habla genio místico de la providencia",
+		"genieResponse3" : "Bueno, bueno...",
+		"genieResponse3b" : "Por 50 monedas te doy un consejo que te será útil.",
+		"genieResponse3c" : "Pero permítime darte un consejo gratis",
+		"vadrixAskGenie4" : "Te escucho estafador",
+		"genieResponse4" : "'El dinero solo trae problemas, ",
+		"genieResponse4b" : "por eso os animo a que me lo deis.'",
+		"genieWelcomeBack" : "Hey, hey, parece que has vuelto.",
+		"genieWelcomeBack2" : "Son 50 monedas de Adrianistaní",
+		"geniePhrase1" : "'La fuerza de tu envidia es la rapidez de mi progreso'",
+		"geniePhrase2" : "'Hay tantas verdades como personas en el mundo'",
+		"geniePhrase3" : "'Más vale ser cabeza de ratón que cola de león'",
+		"geniePhrase4" : "'Si alguien te habla mal de mi, pregúntale cuanto me debe'",
+		"geniePhrase5" : "'Si te debo un euro tengo un problema, si te debo 1000, el problema lo tienes tú'",
+		"geniePhrase6" : "'Un rico es diferente al que no lo es: tiene más dinero'"
 	}
 }
