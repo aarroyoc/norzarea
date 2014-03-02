@@ -8,7 +8,11 @@
 		"misifu" : "Misifú",
 		"mojo" : "Mojo, el terrorista",
 		"object" : "Objeto",
-		"amatulfo" : "Amatulfo, el genio místico"
+		"amatulfo" : "Amatulfo, el genio místico",
+		"raul" : "Monje Raúl",
+		"tonti" : "Tonti Tontito",
+		"pablo" : "Pablo, el tabernero",
+		"alguno" : "Alguno, uno en definitiva"
 	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
@@ -53,7 +57,7 @@
 	"city" : {
 		"king" : "'Sede real",
 		"kingTimetables" : "Horario: 9:00 a 9:01 los jueves'",
-		"biblio" : "'Librería de Uno'",
+		"biblio" : "'Librería de Alguno'",
 		"taberna" : "'Taberna de Pablo'",
 		"monasterio" : "'Monasterio de Santo Klolo'",
 		"circulos" : "¡Qué raro! No es la Iglesia de los 3 círculos",
@@ -80,6 +84,30 @@
 		"geniePhrase3" : "'Más vale ser cabeza de ratón que cola de león'",
 		"geniePhrase4" : "'Si alguien te habla mal de mi, pregúntale cuanto me debe'",
 		"geniePhrase5" : "'Si te debo un euro tengo un problema, si te debo 1000, el problema lo tienes tú'",
-		"geniePhrase6" : "'Un rico es diferente al que no lo es: tiene más dinero'"
+		"geniePhrase6" : "'Un rico es diferente al que no lo es: tiene más dinero'",
+		"meHasPegado" : "¡Me has pegado!",
+		"excomulgation" : "Te excomulgo en Domine Patri, et filli et spiriti santi",
+		"raul0" : "Hola Amigo, adéntrate en la iglesia",
+		"raul1" : "Nosotros somos los seguidores de Klolo y Monono",
+		"raul2" : "Síguenos y prueba nuestra droga, el amor",
+		"vadrixRaul0" : "¡Qué bonito! Da gusto ver gente así",
+		"raul3" : "Sí, tenemos una producción atrás de amor",
+		"raul4" : "Y estamos exportando amor a Azpazeta",
+		"raul5" : "Realmente somos adictos al amor",
+		"sorry" : "Perdona",
+		"nplogasto" : "PLOGASTO, NPLOGASSTO, PLO...",
+		"pablo0" : "Hola, soy Pablo, el tabernero.",
+		"pablo1" : "Esta es mi taberna y ahí detrás está mi hijo",
+		"pablo2" : "Le llamamos Tonti Tontito",
+		"vadrixPablo0" : "He visto el acceso a la central cerrado",
+		"pablo3" : "¿Cerrado? ¡Qué extraño!",
+		"pablo4" : "Suele estar abierto siempre",
+		"pablo5" : "Deberías preguntar a Alguno, sabe más",
+		"alguno0" : "Hola, yo soy Alguno, el bibliotecario",
+		"alguno1" : "No sé mi nombre real, por eso me llamo Alguno",
+		"vadrixAlguno0" : "Pablo me ha dicho que tú me darías información",
+		"vadrixAlguno1" : "Resulta que no puedo acceder a la central",
+		"alguno2" : "Es extraño. Pero lamentablemente no te sirvo",
+		"alguno3" : "Busca al Monje Thomas, suele estar al tanto"
 	}
 }

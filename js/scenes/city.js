@@ -11,6 +11,10 @@ var CityScene = exports.CityScene = function(director)
 	localStorage.progress="2";
 	var sceneProgress={
 		talkWithGenie: false,
+		isClosed: false,
+		talkWithPablo: false,
+		talkWithAlguno: false,
+		talkWithThomas: false,
 		lastMovement: gamejs.event.K_LEFT
 	};
 	var his=new history.History(50,50);
@@ -44,7 +48,7 @@ var CityScene = exports.CityScene = function(director)
 	});
 	his.register(20,3,function(){
 		new text.TextSurface(["generic.closed"],characters.get(0),"characters.vadrix").put(director,2500,function(){
-		
+			sceneProgress.isClosed=true;
 		});
 	});
 	his.register(40,4,function(){
@@ -52,6 +56,7 @@ var CityScene = exports.CityScene = function(director)
 		
 		});
 	});
+	/* Mystic genie */
 	his.register(29,2,function(){
 		if(!sceneProgress.talkWithGenie)
 		{
@@ -101,10 +106,89 @@ var CityScene = exports.CityScene = function(director)
 			});
 		}
 	});
+	/* Monje Raul */
+	his.register(40,10,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.meHasPegado","city.excomulgation"],players.get(41),"characters.raul").put(director,3500,function(){
+			
+			});
+		}else{
+			new text.TextSurface(["city.raul0","city.raul1","city.raul2"],players.get(41),"characters.raul").put(director,5000,function(){
+				new text.TextSurface(["city.vadrixRaul0"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+					new text.TextSurface(["city.raul3","city.raul4","city.raul5"],players.get(41),"characters.raul").put(director,5000,function(){
+					
+					});
+				});
+			});
+		}
+	});
+	/* Tonti Tontito */
+	his.register(24,2,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.meHasPegado"],characters.get(45),"characters.tonti").put(director,2500,function(){
+				new text.TextSurface(["city.sorry"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+					new text.TextSurface(["city.nplogasto"],characters.get(45),"characters.tonti").put(director,2500,function(){
+					
+					});
+				});
+			});
+		}else{
+			new text.TextSurface(["city.nplogasto"],characters.get(45),"characters.tonti").put(director,3500,function(){
+			
+			});
+		}
+	});
+	/* Tabernero Pablo */
+	his.register(29,6,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.meHasPegado"],characters.get(8),"characters.pablo").put(director,2500,function(){
+				new text.TextSurface(["city.sorry"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+
+				});
+			});
+		}else{
+			new text.TextSurface(["city.pablo0","city.pablo1","city.pablo2"],characters.get(8),"characters.pablo").put(director,5500,function(){
+				if(sceneProgress.isClosed==true && sceneProgress.talkWithAlguno==false)
+				{
+					new text.TextSurface(["city.vadrixPablo0"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+						new text.TextSurface(["city.pablo3","city.pablo4","city.pablo5"],characters.get(8),"characters.pablo").put(director,5500,function(){
+							sceneProgress.talkWithPablo=true;
+						});
+					});
+				}
+			});
+		}
+	});
+	/* Alguno */
+	his.register(24,7,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.meHasPegado"],players.get(8),"characters.alguno").put(director,2500,function(){
+				new text.TextSurface(["city.sorry"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+
+				});
+			});
+		}else{
+			if(sceneProgress.talkWithPablo==true && sceneProgress.talkWithThomas==false)
+			{
+				new text.TextSurface(["city.alguno0","city.alguno1"],players.get(8),"characters.alguno").put(director,4500,function(){
+					new text.TextSurface(["city.vadrixAlguno0","city.vadrixAlguno1"],characters.get(0),"characters.vadrix").put(director,4500,function(){
+						new text.TextSurface(["city.alguno2","city.alguno3"],players.get(8),"characters.alguno").put(director,4500,function(){
+							sceneProgress.talkWithAlguno=true;
+						});
+					});
+				});
+			}
+		}
+	});
 	/* SpriteSheets */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
 	var effectsImage=new spritesheet.SpriteSheet("./img/DawnHack/Objects/Effects0.png",{width: 16, height: 16});
 	var moneyImage=new spritesheet.SpriteSheet("./img/DawnHack/Items/Money.png",{width: 16, height: 16});
+	var players=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Player0.png",{width: 16, height: 16});
 	
 	var vadrix=new sprite.Sprite();
 	vadrix.xpos=0;
@@ -119,6 +203,31 @@ var CityScene = exports.CityScene = function(director)
 	var effects=new sprite.Group();
 	var furniture=new sprite.Group();
 	var people=new sprite.Group();
+	
+	var pablo=new sprite.Sprite();
+	pablo.rect=new gamejs.Rect([29*16,6*16],[16,16]);
+	pablo.image=characters.get(8);
+	people.add(pablo);
+	
+	var tonti=new sprite.Sprite();
+	tonti.rect=new gamejs.Rect([24*16,2*16],[16,16]);
+	tonti.image=characters.get(45);
+	people.add(tonti);
+	
+	var monjeThomas=new sprite.Sprite();
+	monjeThomas.rect=new gamejs.Rect([46*16,6*16],[16,16]);
+	monjeThomas.image=players.get(31);
+	people.add(monjeThomas);
+	
+	var monjeRaul=new sprite.Sprite();
+	monjeRaul.rect=new gamejs.Rect([40*16,10*16],[16,16]);
+	monjeRaul.image=players.get(41);
+	people.add(monjeRaul);
+	
+	var alguno=new sprite.Sprite();
+	alguno.rect=new gamejs.Rect([24*16,7*16],[16,16]);
+	alguno.image=players.get(8);
+	people.add(alguno);
 	
 	/* TMX Map */
 	var map = new view.Map('./maps/city.tmx');
