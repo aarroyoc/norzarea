@@ -12,7 +12,8 @@
 		"raul" : "Monje Raúl",
 		"tonti" : "Tonti Tontito",
 		"pablo" : "Pablo, el tabernero",
-		"alguno" : "Alguno, uno en definitiva"
+		"alguno" : "Alguno, uno en definitiva",
+		"thomas" : "Monje Thomas"
 	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
@@ -108,6 +109,20 @@
 		"vadrixAlguno0" : "Pablo me ha dicho que tú me darías información",
 		"vadrixAlguno1" : "Resulta que no puedo acceder a la central",
 		"alguno2" : "Es extraño. Pero lamentablemente no te sirvo",
-		"alguno3" : "Busca al Monje Thomas, suele estar al tanto"
+		"alguno3" : "Busca al Monje Thomas, suele estar al tanto",
+		"thomas0" : "Hola compañero de viaje",
+		"thomas1" : "Las constelaciones ya nos avisaban",
+		"thomas2" : "AY, estoy obteniendo energía celestial",
+		"vadrixThomas0" : "Perdona, pero yo te venía a preguntar otra cosa",
+		"vadrixThomas1" : "Yo querría saber como acceder a la central",
+		"vadrixThomas2" : "Alguno me dijo que te preguntase",
+		"thomas3" : "Sí, eso yo ya lo sabía",
+		"thomas4" : "Veo el futuro.",
+		"thomas5" : "Me temo que tienes que ver al mequetrefe ese tonto",
+		"vadrixTonti0" : "Hola Tonti, quisiera hablar contigo",
+		"tonti0" : "ARBLUGF, AAARBLUGFF, SUGLUF",
+		"tonti1" : "Vete. Conejitos. Larari. SUGLF",
+		"tonti2" : "No. Cógeme si puedes",
+		"tonti3" : "Oh no. Me has cogido. Estoy cansado"
 	}
 }

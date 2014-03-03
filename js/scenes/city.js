@@ -15,6 +15,9 @@ var CityScene = exports.CityScene = function(director)
 		talkWithPablo: false,
 		talkWithAlguno: false,
 		talkWithThomas: false,
+		talkWithTonti: false,
+		persecution: 0,
+		persecutionPos: [[24,2],[23,2],[22,2],[22,3],[22,4],[21,4],[20,4],[20,5],[20,6],[20,7],[20,8],[20,9],[20,10],[19,10],[18,10],[17,10],[16,10],[15,10],[15,9],[15,8],[16,8],[17,8],[17,7],[16,7],[15,7],[14,7],[13,7],[13,8],[14,8]],
 		lastMovement: gamejs.event.K_LEFT
 	};
 	var his=new history.History(50,50);
@@ -125,7 +128,7 @@ var CityScene = exports.CityScene = function(director)
 	});
 	/* Tonti Tontito */
 	his.register(24,2,function(data){
-		if(data.type=="attack")
+		if(data.type=="attack" && sceneProgress.persecution==0)
 		{
 			new text.TextSurface(["city.meHasPegado"],characters.get(45),"characters.tonti").put(director,2500,function(){
 				new text.TextSurface(["city.sorry"],characters.get(0),"characters.vadrix").put(director,2500,function(){
@@ -135,9 +138,47 @@ var CityScene = exports.CityScene = function(director)
 				});
 			});
 		}else{
-			new text.TextSurface(["city.nplogasto"],characters.get(45),"characters.tonti").put(director,3500,function(){
+			if(sceneProgress.talkWithThomas===false){
+				new text.TextSurface(["city.vadrixTonti0"],characters.get(0),"characters.vadrix").put(director,3000,function(){
+					var id=setInterval(function(){
+						tonti.rect=new gamejs.Rect([sceneProgress.persecutionPos[sceneProgress.persecution][0]*16,sceneProgress.persecutionPos[sceneProgress.persecution][1]*16],[16,16]);
+						sceneProgress.persecution++;
+						if(sceneProgress.persecution>4)
+						{
+							clearInterval(id);
+						}
+					},1000);
+					new text.TextSurface(["city.tonti0","city.tonti1"],characters.get(45),"characters.tonti").put(director,5000,function(){
+						his.unregister(24,2);
+						his.register(22,4,function(){
+							var id2=setInterval(function(){
+								his.unregister(sceneProgress.persecutionPos[sceneProgress.persecution-1][0],sceneProgress.persecutionPos[sceneProgress.persecution-1][1]);
+								tonti.rect=new gamejs.Rect([sceneProgress.persecutionPos[sceneProgress.persecution][0]*16,sceneProgress.persecutionPos[sceneProgress.persecution][1]*16],[16,16]);
+								his.register(sceneProgress.persecutionPos[sceneProgress.persecution][0],sceneProgress.persecutionPos[sceneProgress.persecution][1],function(){
+									clearInterval(id2);
+									new text.TextSurface(["city.tonti3"],characters.get(45),"characters.tonti").put(director,3500,function(){
+									
+									});
+								});
+								sceneProgress.persecution++;
+								if(sceneProgress.persecution>28)
+								{
+									sceneProgress.persecution=19;
+								}
+							},250);
+							new text.TextSurface(["city.tonti2"],characters.get(45),"characters.tonti").put(director,3500,function(){
+
+							
+							});
+						});
+					});
+				});
+			}
+			else if(sceneProgress.persecution==0){
+				new text.TextSurface(["city.nplogasto"],characters.get(45),"characters.tonti").put(director,3500,function(){
 			
-			});
+				});
+			}
 		}
 	});
 	/* Tabernero Pablo */
@@ -182,6 +223,29 @@ var CityScene = exports.CityScene = function(director)
 					});
 				});
 			}
+		}
+	});
+	/* Moje Thomas */
+	his.register(46,6,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.meHasPegado"],players.get(31),"characters.thomas").put(director,2500,function(){
+				new text.TextSurface(["city.sorry"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+
+				});
+			});
+		}else{
+			if(sceneProgress.talkWithAlguno==true && sceneProgress.talkWithTonti==false)
+			{
+				new text.TextSurface(["city.thomas0","city.thomas1","city.thomas2"],players.get(31),"characters.thomas").put(director,5500,function(){
+					new text.TextSurface(["city.vadrixThomas0","city.vadrixThomas1","city.vadrixThomas2"],characters.get(0),"characters.vadrix").put(director,5500,function(){
+						new text.TextSurface(["city.thomas3","city.thomas4","city.thomas5"],players.get(31),"characters.thomas").put(director,5500,function(){
+							sceneProgress.talkWithThomas=true;
+						});
+					});
+				});
+			}
+		
 		}
 	});
 	/* SpriteSheets */
