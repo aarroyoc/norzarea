@@ -5,6 +5,7 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
+var ratasillo = require("./ratasillo");
 
 var CityScene = exports.CityScene = function(director)
 {
@@ -16,6 +17,7 @@ var CityScene = exports.CityScene = function(director)
 		talkWithAlguno: false,
 		talkWithThomas: false,
 		talkWithTonti: false,
+		haveKey: false,
 		persecution: 0,
 		persecutionPos: [[24,2],[23,2],[22,2],[22,3],[22,4],[21,4],[20,4],[20,5],[20,6],[20,7],[20,8],[20,9],[20,10],[19,10],[18,10],[17,10],[16,10],[15,10],[15,9],[15,8],[16,8],[17,8],[17,7],[16,7],[15,7],[14,7],[13,7],[13,8],[14,8]],
 		lastMovement: gamejs.event.K_LEFT
@@ -49,11 +51,26 @@ var CityScene = exports.CityScene = function(director)
 			
 		});
 	});
-	his.register(20,3,function(){
-		new text.TextSurface(["generic.closed"],characters.get(0),"characters.vadrix").put(director,2500,function(){
-			sceneProgress.isClosed=true;
-		});
+	/* Puerta cerrada */
+	his.register(20,3,function(data){
+		if(data.type=="attack")
+		{
+			new text.TextSurface(["city.pegando"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+			
+			});
+		}else if(sceneProgress.isClosed===false){
+			new text.TextSurface(["generic.closed"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+				sceneProgress.isClosed=true;
+			});
+		}else if(sceneProgress.haveKey===true)
+		{
+			new text.TextSurface(["city.open"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				//LOAD NEW SCENE
+				director.replaceScene(new ratasillo.RatasilloScene(director));
+			});
+		}
 	});
+	/* Puerta cerrada */
 	his.register(40,4,function(){
 		new text.TextSurface(["city.secretDoor"],characters.get(0),"characters.vadrix").put(director,2500,function(){
 		
@@ -138,14 +155,14 @@ var CityScene = exports.CityScene = function(director)
 				});
 			});
 		}else{
-			if(sceneProgress.talkWithThomas===false){
+			if(sceneProgress.talkWithThomas===true){
 				new text.TextSurface(["city.vadrixTonti0"],characters.get(0),"characters.vadrix").put(director,3000,function(){
 					var id=setInterval(function(){
 						tonti.rect=new gamejs.Rect([sceneProgress.persecutionPos[sceneProgress.persecution][0]*16,sceneProgress.persecutionPos[sceneProgress.persecution][1]*16],[16,16]);
 						sceneProgress.persecution++;
 						if(sceneProgress.persecution>4)
 						{
-							clearInterval(id);
+						clearInterval(id);
 						}
 					},1000);
 					new text.TextSurface(["city.tonti0","city.tonti1"],characters.get(45),"characters.tonti").put(director,5000,function(){
@@ -157,7 +174,12 @@ var CityScene = exports.CityScene = function(director)
 								his.register(sceneProgress.persecutionPos[sceneProgress.persecution][0],sceneProgress.persecutionPos[sceneProgress.persecution][1],function(){
 									clearInterval(id2);
 									new text.TextSurface(["city.tonti3"],characters.get(45),"characters.tonti").put(director,3500,function(){
-									
+										sceneProgress.talkWithTonti=true;
+										new text.TextSurface(["city.vadrixTonti1"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+											new text.TextSurface(["city.tonti4","city.tonti5"],characters.get(45),"characters.tonti").put(director,4500,function(){
+											
+											});
+										});
 									});
 								});
 								sceneProgress.persecution++;
@@ -167,16 +189,13 @@ var CityScene = exports.CityScene = function(director)
 								}
 							},250);
 							new text.TextSurface(["city.tonti2"],characters.get(45),"characters.tonti").put(director,3500,function(){
-
-							
 							});
 						});
 					});
 				});
-			}
-			else if(sceneProgress.persecution==0){
+			}else if(sceneProgress.persecution==0){
 				new text.TextSurface(["city.nplogasto"],characters.get(45),"characters.tonti").put(director,3500,function(){
-			
+
 				});
 			}
 		}
@@ -248,11 +267,26 @@ var CityScene = exports.CityScene = function(director)
 		
 		}
 	});
+	/* Jarron */
+	his.register(28,2,function(data){
+		if(data.type=="attack" && sceneProgress.talkWithTonti===true && sceneProgress.haveKey===false)
+		{
+			people.remove(jarron);
+			new text.TextSurface(["generic.obtained","city.key0"],keys.get(0),"characters.object").put(director,4500,function(){
+				sceneProgress.haveKey=true;
+				new text.TextSurface(["city.goToWall"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+					
+				});
+			});
+		}
+	});
 	/* SpriteSheets */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
 	var effectsImage=new spritesheet.SpriteSheet("./img/DawnHack/Objects/Effects0.png",{width: 16, height: 16});
 	var moneyImage=new spritesheet.SpriteSheet("./img/DawnHack/Items/Money.png",{width: 16, height: 16});
 	var players=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Player0.png",{width: 16, height: 16});
+	var furnitureImage=new spritesheet.SpriteSheet("./img/DawnHack/Objects/Furniture0.png",{width: 16, height: 16});
+	var keys=new spritesheet.SpriteSheet("./img/DawnHack/Items/Keys.png",{width: 16, height: 16});
 	
 	var vadrix=new sprite.Sprite();
 	vadrix.xpos=0;
@@ -292,6 +326,11 @@ var CityScene = exports.CityScene = function(director)
 	alguno.rect=new gamejs.Rect([24*16,7*16],[16,16]);
 	alguno.image=players.get(8);
 	people.add(alguno);
+	
+	var jarron=new sprite.Sprite();
+	jarron.rect=new gamejs.Rect([28*16,2*16],[16,16]);
+	jarron.image=furnitureImage.get(7);
+	furniture.add(jarron);
 	
 	/* TMX Map */
 	var map = new view.Map('./maps/city.tmx');

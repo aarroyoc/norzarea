@@ -123,6 +123,13 @@
 		"tonti0" : "ARBLUGF, AAARBLUGFF, SUGLUF",
 		"tonti1" : "Vete. Conejitos. Larari. SUGLF",
 		"tonti2" : "No. Cógeme si puedes",
-		"tonti3" : "Oh no. Me has cogido. Estoy cansado"
+		"tonti3" : "Oh no. Me has cogido. Estoy cansado",
+		"vadrixTonti1" : "Descansa. ¿Sabes por qué está cerrada la central?",
+		"tonti4" : "Sí, la cerré yo por error. Un señor me dio la llave",
+		"tonti5" : "La llave la guardé en mi casa, pero no sé donde",
+		"key0" : "Llave limpia y reluciente",
+		"goToWall" : "Creo que debería ir a la central ahora",
+		"pegando" : "No creo que pegando se vaya a abrir",
+		"open" : "La llave abre esta puerta. Entremos a la central."
 	}
 }

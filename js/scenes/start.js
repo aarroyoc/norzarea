@@ -2,6 +2,7 @@ var gamejs = require('gamejs');
 var firstScene = require("./first");
 var training = require("./training");
 var city = require("./city");
+var ratasillo = require("./ratasillo");
 
 var StartScene = exports.StartScene = function(director)
 {
@@ -14,6 +15,7 @@ var StartScene = exports.StartScene = function(director)
 				case 0: director.replaceScene(new firstScene.FirstScene(director));break;
 				case 1: director.replaceScene(new training.TrainingScene(director));break;
 				case 2: director.replaceScene(new city.CityScene(director));break;
+				case 3: director.replaceScene(new ratasillo.RatasilloScene(director));break;
 				default: director.replaceScene(new firstScene.FirstScene(director));
 			}
 			
