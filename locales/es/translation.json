@@ -139,5 +139,12 @@
 		"getit" : "¡Te cogí! Ahora ya puedo continuar",
 		"porton" : "Ya puedo continuar",
 		"encisa" : "'ENCISA POW-X'"
+	},
+	"calderas" : {
+		"cartel" : "'Sala de calderas'",
+		"caotico" : "Esto es un poco caótico",
+		"caldera" : "Parece una caldera",
+		"puerta" : "Se ha abierto, puedo pasar",
+		"salida" : "Por fin una salida coherente"
 	}
 }
