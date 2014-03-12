@@ -3,6 +3,8 @@ var firstScene = require("./first");
 var training = require("./training");
 var city = require("./city");
 var ratasillo = require("./ratasillo");
+var calderas = require("./calderas");
+var laboratory = require("./laboratory");
 
 var StartScene = exports.StartScene = function(director)
 {
@@ -16,6 +18,8 @@ var StartScene = exports.StartScene = function(director)
 				case 1: director.replaceScene(new training.TrainingScene(director));break;
 				case 2: director.replaceScene(new city.CityScene(director));break;
 				case 3: director.replaceScene(new ratasillo.RatasilloScene(director));break;
+				case 4: director.replaceScene(new calderas.CalderasScene(director));break;
+				case 5: director.replaceScene(new laboratory.LaboratoryScene(director));break;
 				default: director.replaceScene(new firstScene.FirstScene(director));
 			}
 			
