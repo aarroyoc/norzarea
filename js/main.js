@@ -13,18 +13,21 @@ gamejs.ready(function() {
 	//sound.play(true);
 	/* Sound system */
 	/* Initialization */
-	/*var audioList=["./music/MA_VLAST.ogg","./music/DVORAK.ogg","./music/BEETHOVEN.ogg"];
-	var audioTrack=0;
-	var sound=new Audio();
-	sound.src=audioList[audioTrack];
-	sound.play();
-	sound.addEventListener("ended",function(){
-		audioTrack++;
-		if(audioTrack==3)
-			audioTrack=0;
+	if(parseInt(localStorage.audio)==1)
+	{
+		var audioList=["./music/MA_VLAST.ogg","./music/DVORAK.ogg","./music/BEETHOVEN.ogg"];
+		var audioTrack=0;
+		var sound=new Audio();
 		sound.src=audioList[audioTrack];
 		sound.play();
-	});*/
+		sound.addEventListener("ended",function(){
+			audioTrack++;
+			if(audioTrack==3)
+				audioTrack=0;
+			sound.src=audioList[audioTrack];
+			sound.play();
+		});
+	}
    gamejs.display.setCaption('Norzarea');
    var display = gamejs.display.setMode([800, 400],gamejs.display.POINTERLOCK);
    var dir=new director.Director();

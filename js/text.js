@@ -1,4 +1,5 @@
 var gamejs=require("gamejs");
+var sfxmanager=require("./sfx");
 
 var TextSurface = exports.TextSurface = function(textArray, characterImage, characterName)
 {
@@ -18,6 +19,16 @@ var TextSurface = exports.TextSurface = function(textArray, characterImage, char
 			}
 		},time);
 	}
+	var sfx=new sfxmanager.SFXManager();
+	var charName=characterName.split(".");
+	var sound;
+	switch(charName[1])
+	{
+		case "vadrix" : {sound=sfx.sounds.TALK;}break;
+		case "robot" : {sound=sfx.sounds.ROBOT;}break;
+		default : {sound=sfx.sounds.TALK;}break;
+	}
+	sfx.play(sound);
 	var font=new gamejs.font.Font("20px UbuntuCondensed");
 	var fontCharacter=new gamejs.font.Font("15px Poller One");
 	var person=fontCharacter.render(i18n.t(characterName));

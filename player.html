@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Norzarea</title>
+		<meta charset="utf-8"/>
+		<style>
+		body{
+			background-color: brown;
+			text-align: center;
+		}
+		iframe{
+			border: none;
+		}
+		</style>
+		<script>
+		function saveSettings()
+		{
+			if(document.getElementById("audio").checked)
+				localStorage.audio="1";
+			else
+				localStorage.audio="0";
+			window.location.reload();
+		}
+		</script>
+	</head>
+	<body>
+		<iframe src="index.html" style="width: 900px; height: 500px;">
+		
+		</iframe>
+		<h3>Instructions</h3>
+		<p>
+		Play with Vadrix trough the land of Norzarea
+		</p>
+		<h3>Settings</h3>
+		<div>
+			<label for="audio">Audio enabled</label><input id="audio" type="checkbox"/>
+			<button onclick="saveSettings();">Save</button>
+		</div>
+	</body>
+</html>
