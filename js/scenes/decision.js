@@ -5,6 +5,7 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
+var color = require("./color");
 
 var DecisionScene = exports.DecisionScene = function(director){
 	localStorage.progress="7";
@@ -34,12 +35,14 @@ var DecisionScene = exports.DecisionScene = function(director){
 		new text.TextSurface(["decision.robot8"],effectsImage.get(19),"characters.robot").put(director,2500,function(){
 			//SET A DIFFERENT FINAL
 			localStorage.finalEnabled="STEAL";
+			director.replaceScene(new color.ColorScene(director));
 		});
 	});
 	his.register(25,4,function(){
 		new text.TextSurface(["decision.robot8"],effectsImage.get(19),"characters.robot").put(director,2500,function(){
 			//SET A DIFFERENT FINAL
 			localStorage.finalEnabled="CHRONUS";
+			director.replaceScene(new color.ColorScene(director));
 		});
 	});
 	
