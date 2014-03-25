@@ -8,6 +8,7 @@ var laboratory = require("./laboratory");
 var explosion = require("./explosion");
 var decision = require("./decision");
 var color = require("./color");
+var plaza = require("./plaza");
 
 var StartScene = exports.StartScene = function(director)
 {
@@ -26,6 +27,7 @@ var StartScene = exports.StartScene = function(director)
 				case 6: director.replaceScene(new explosion.ExplosionScene(director));break;
 				case 7: director.replaceScene(new decision.DecisionScene(director));break;
 				case 8: director.replaceScene(new color.ColorScene(director));break;
+				case 9: director.replaceScene(new plaza.PlazaScene(director));break;
 				default: director.replaceScene(new firstScene.FirstScene(director));
 			}
 			

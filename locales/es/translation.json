@@ -21,7 +21,9 @@
 		"peble" : "Peble",
 		"antiVadrix" : "Anti-Vadrix",
 		"wadrix" : "Wadrix",
-		"robot" : "Voz inquietante"
+		"robot" : "Voz inquietante",
+		"piblo" : "Piblo",
+		"peble" : "Peble"
 	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
@@ -224,5 +226,21 @@
 		"vadrix0" : "¿Dónde estoy?¿Qué ha ocurrido?",
 		"vadrix1" : "Lo mejor será que me vaya",
 		"robot8" : "¿Esa es tu elección?"
+	},
+	"plaza" : {
+		"vadrix0" : "Por fin he llegado al edificio central",
+		"vadrix0b" : "Debo encontar el interruptor general",
+		"vadrix1" : "Sin embargo han ocurrido cosas muy raras",
+		"vadrix2" : "La verja cerrada, la explosión, la voz extraña",
+		"vadrix3" : "y la sala anterior. Todo muy extraño.",
+		"cartel0" : "'A veces es necesario mirar atrás'",
+		"cartel1" : "'Serás el mejor cuando ganes al mejor'",
+		"cartel2" : "'El centro del anillo está donde tu pienses'",
+		"cartel3" : "'Nunca hay pocas elecciones'",
+		"curioso" : "Realmente curioso",
+		"piblo0" : "Mi hermano es muy mentiroso, siempre cuenta mentiras",
+		"peble0" : "Hay dos mentirosos dentro de este recinto",
+		"peble1" : "¡NO! Me muero lenta y dolorosamente",
+		"mentiroso" : "'El falso gemelo morirá y la luz se abrirá'"
 	}
 }

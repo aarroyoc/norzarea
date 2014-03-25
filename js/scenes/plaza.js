@@ -5,55 +5,82 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
-var plaza = require("./plaza");
 
-var ColorScene = exports.ColorScene = function(director){
-	localStorage.progress="8";
+var PlazaScene = exports.PlazaScene = function(director){
+	localStorage.progress="9";
 	var sceneProgress={
-		finishPuzzle: false
+		piblo: false,
+		peble: false,
+		enableKilled: false,
+		pebleKilled: false
 	};
 	var his=new history.History(50,50);
 	/* History */
-	his.register(25,6,function(){
-		if(sceneProgress.finishPuzzle===true)
+	his.register(24,19,function(){
+		new text.TextSurface(["generic.cartel","plaza.cartel0"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+		
+		});
+	});
+	his.register(26,19,function(){
+		new text.TextSurface(["generic.cartel","plaza.cartel1"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+		
+		});
+	});
+	his.register(24,15,function(){
+		new text.TextSurface(["generic.cartel","plaza.cartel2"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+		
+		});
+	});
+	his.register(26,15,function(){
+		new text.TextSurface(["generic.cartel","plaza.cartel3"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+		
+		});
+	});
+	/* Salida */
+	his.register(25,24,function(){
+		vadrix.xpos=3;
+		vadrix.ypos=3;
+		new text.TextSurface(["plaza.curioso"],characters.get(0),"characters.vadrix").put(director,2500,function(){
+		
+		});
+	});
+	/* Piblo */
+	his.register(4,7,function(){
+		if(sceneProgress.piblo===false)
 		{
-			director.replaceScene(new plaza.PlazaScene(director));
-		}else{
-			new text.TextSurface(["generic.closed"],characters.get(0),"characters.vadrix").put(director,2500,function(){
-				
+			new text.TextSurface(["plaza.piblo0"],characters.get(2),"characters.piblo").put(director,3500,function(){
+			
+			});
+			sceneProgress.piblo=true;
+		}
+	});
+	/* Peble */
+	his.register(46,7,function(data){
+		if(sceneProgress.peble===false)
+		{
+			new text.TextSurface(["plaza.peble0"],characters.get(2),"characters.peble").put(director,3500,function(){
+			
+			});
+			sceneProgress.peble=true;
+		}else if(sceneProgress.enableKill===true && data.type=="attack"){
+			new text.TextSurface(["plaza.peble1"],characters.get(2),"characters.peble").put(director,2500,function(){
+				people.remove(peble);
+				sceneProgress.pebleKilled=true;
 			});
 		}
 	});
-	var colorPuzzleColors={
-		GREEN: 1,
-		RED: 2,
-		BLUE: 3,
-		GRAY: 0
-	};
-	var colorPosition=0;
-	var colorPuzzleSolver=function(color){
-		if(colorPosition==2 && color==3)
+	/* Magic Stone */
+	his.register(25,12,function(data){
+		if(data.type=="attack")
 		{
-			sceneProgress.finishPuzzle=true;
+			if(sceneProgress.pebleKilled===false)
+			{
+				new text.TextSurface(["generic.cartel","plaza.mentiroso"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				
+				});
+				sceneProgress.enableKill=true;
+			}
 		}
-		if(colorPosition==(color-1))
-		{
-			colorPosition++;
-		}else{
-			colorPosition=-1;
-		}
-	}
-	his.register(31,10,function(){
-		colorPuzzleSolver(colorPuzzleColors.BLUE);
-	});
-	his.register(31,16,function(){
-		colorPuzzleSolver(colorPuzzleColors.GRAY);
-	});
-	his.register(19,16,function(){
-		colorPuzzleSolver(colorPuzzleColors.RED);
-	});
-	his.register(19,10,function(){
-		colorPuzzleSolver(colorPuzzleColors.GREEN);
 	});
 	/* SpriteSheets */
 	var characters=new spritesheet.SpriteSheet("./img/DawnHack/Characters/Humanoids0.png",{width: 16, height: 16});
@@ -62,7 +89,7 @@ var ColorScene = exports.ColorScene = function(director){
 	
 	var vadrix=new sprite.Sprite();
 	vadrix.xpos=25;
-	vadrix.ypos=22;
+	vadrix.ypos=23;
 	vadrix.rect=new gamejs.Rect([vadrix.xpos*16,vadrix.ypos*16],[16,16]);
 	vadrix.image=characters.get(0);
 	vadrix.update=function(){
@@ -74,9 +101,27 @@ var ColorScene = exports.ColorScene = function(director){
 	var furniture=new sprite.Group();
 	var people=new sprite.Group();
 	
+	var piblo=new sprite.Sprite();
+	piblo.rect=new gamejs.Rect([4*16,7*16],[16,16]);
+	piblo.image=characters.get(2);
+	people.add(piblo);
+	
+	var peble=new sprite.Sprite();
+	peble.rect=new gamejs.Rect([46*16,7*16],[16,16]);
+	peble.image=characters.get(2);
+	people.add(peble);
+	
+	
 	/* TMX Map */
-	var map = new view.Map('./maps/color.tmx');
+	var map = new view.Map('./maps/plaza.tmx');
 	var coll=new collision.CollisionMap(map.getMap());
+	
+	/* Startup */
+	new text.TextSurface(["plaza.vadrix0","plaza.vadrix0b"],characters.get(0),"characters.vadrix").put(director,4000,function(){
+		new text.TextSurface(["plaza.vadrix1","plaza.vadrix2","plaza.vadrix3"],characters.get(0),"characters.vadrix").put(director,5500,function(){
+		
+		});
+	});
 	
 	this.handleEvent= function(event)
 	{
