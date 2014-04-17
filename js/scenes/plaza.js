@@ -5,6 +5,7 @@ var history = require("../history");
 var spritesheet = require("../spritesheet");
 var collision = require("../collision");
 var text = require("../text");
+var tv = require("./tv");
 
 var PlazaScene = exports.PlazaScene = function(director){
 	localStorage.progress="9";
@@ -12,7 +13,9 @@ var PlazaScene = exports.PlazaScene = function(director){
 		piblo: false,
 		peble: false,
 		enableKilled: false,
-		pebleKilled: false
+		pebleKilled: false,
+		goToLight: false,
+		finalElection: false
 	};
 	var his=new history.History(50,50);
 	/* History */
@@ -76,10 +79,83 @@ var PlazaScene = exports.PlazaScene = function(director){
 			if(sceneProgress.pebleKilled===false)
 			{
 				new text.TextSurface(["generic.cartel","plaza.mentiroso"],characters.get(0),"characters.vadrix").put(director,3500,function(){
-				
+					new text.TextSurface(["plaza.vadrix4"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+					
+					});
 				});
 				sceneProgress.enableKill=true;
+			}else if(sceneProgress.pebleKilled===true && sceneProgress.goToLight===false)
+			{
+				new text.TextSurface(["generic.cartel","plaza.luzoscura"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				
+				});
 			}
+		}
+	});
+	/* Alfombra */
+	function alfombra()
+	{
+		if(sceneProgress.pebleKilled===true && sceneProgress.goToLight===false)
+		{
+			new text.TextSurface(["plaza.vadrix5"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				new text.TextSurface(["plaza.vadrix6","plaza.vadrix7"],characters.get(0),"characters.vadrix").put(director,4500,function(){
+					sceneProgress.goToLight=true;
+					var wadrix=new sprite.Sprite();
+					wadrix.rect=new gamejs.Rect([25*16,11*16],[16,16]);
+					wadrix.image=characters.get(11);
+					people.add(wadrix);
+					new text.TextSurface(["plaza.wadrix0","plaza.wadrix1","plaza.wadrix2"],characters.get(11),"characters.wadrix").put(director,5500,function(){
+						new text.TextSurface(["plaza.vadrix8"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+							new text.TextSurface(["plaza.wadrix3","plaza.wadrix4"],characters.get(11),"characters.wadrix").put(director,5500,function(){
+								new text.TextSurface(["plaza.vadrix9","plaza.vadrix10"],characters.get(0),"characters.vadrix").put(director,4500,function(){
+								 	new text.TextSurface(["plaza.wadrix5","plaza.wadrix6","plaza.wadrix7"],characters.get(11),"characters.wadrix").put(director,5500,function(){
+										new text.TextSurface(["plaza.wadrix8"],characters.get(11),"characters.wadrix").put(director,3500,function(){
+											sceneProgress.finalElection=true;
+											var bloco=new sprite.Sprite();
+											bloco.rect=new gamejs.Rect([21*16,4*16],[16,16]);
+											bloco.image=players.get(9);
+											people.add(bloco);
+											var amigos=new sprite.Sprite();
+											amigos.image=characters.get(3);
+											amigos.rect=new gamejs.Rect([33*16,4*16],[16,16]);
+											people.add(amigos);
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}
+	}
+	his.register(37,12,function(data){
+		alfombra();
+	});
+	/* Alfombra */
+	his.register(13,12,function(data){
+		alfombra();
+	});
+	/* Amigos */
+	his.register(21,4,function(){
+		if(sceneProgress.finalElection===true)
+		{
+			new text.TextSurface(["plaza.vadrix11b"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				new text.TextSurface(["plaza.wadrix9"],characters.get(11),"characters.wadrix").put(director,3500,function(){
+					director.replaceScene(new tv.TVScene(director));
+				});
+			});
+		}
+	});
+	/* Dragon */
+	his.register(33,4,function(){
+		if(sceneProgress.finalElection===true)
+		{
+			new text.TextSurface(["plaza.vadrix11a"],characters.get(0),"characters.vadrix").put(director,3500,function(){
+				new text.TextSurface(["plaza.wadrix9"],characters.get(11),"characters.wadrix").put(director,3500,function(){
+					director.replaceScene(new tv.TVScene(director));
+				});
+			});
 		}
 	});
 	/* SpriteSheets */

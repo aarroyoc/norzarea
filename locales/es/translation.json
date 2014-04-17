@@ -23,7 +23,8 @@
 		"wadrix" : "Wadrix",
 		"robot" : "Voz inquietante",
 		"piblo" : "Piblo",
-		"peble" : "Peble"
+		"peble" : "Peble",
+		"dragon" : "Dragón mágico"
 	},
 	"generic" : {
 		"cartel" : "El cartel dice: ",
@@ -241,6 +242,36 @@
 		"piblo0" : "Mi hermano es muy mentiroso, siempre cuenta mentiras",
 		"peble0" : "Hay dos mentirosos dentro de este recinto",
 		"peble1" : "¡NO! Me muero lenta y dolorosamente",
-		"mentiroso" : "'El falso gemelo morirá y la luz se abrirá'"
+		"mentiroso" : "'El falso gemelo morirá y la luz se abrirá'",
+		"luzoscura" : "'La luz abierta se encuntra en el escondite del polvo'",
+		"vadrix4" : "Las medidas de seguridad son cada vez más raras",
+		"vadrix5" : "Voy a mirar debajo de la alfombra",
+		"vadrix6" : "¿Un botón que pone 'NO TOCAR'?",
+		"vadrix7" : "Creo que no pasará nada si lo pulso",
+		"wadrix0" : "Vaya, vaya. Pero si es mi amigo Vadrix",
+		"wadrix1" : "Parece que alguien no te enseñó el sentido de 'NO TOCAR'",
+		"wadrix2" : "Como preveía",
+		"vadrix8" : "¿Cómo que como tu preveías?",
+		"wadrix3" : "Amigo mío, yo te he llevado hasta aquí",
+		"wadrix4" : "Yo corte la luz y yo hacía la voz misteriosa",
+		"vadrix9" : "¡WADRIX! Mi archienemigo",
+		"vadrix10" : "Pero ¿por qué?",
+		"wadrix5" : "Bueno, no se si recuerdas aquellos momentos",
+		"wadrix6" : "Tu me robaste mi dragón, mi mejor invento",
+		"wadrix7" : "Te compraste esa casa y tuviste esa mujer gracias al dragón",
+		"wadrix8" : "Te toca decidir, el dragón o tus amigos",
+		"vadrix11a" : "Sinceramente, elijo a mis amigos",
+		"vadrix11b" : "Me quedo con el dragón, puedo comprar nuevos amigos",
+		"wadrix9" : "Decisión errónea, jajajajaja"
+	},
+	"tv" : {
+		"tv1" : "Zzzzzz....",
+		"tv2" : "Uff... Me he dormido",
+		"tv3" : "Menos mal que ya ha acabado la serie",
+		"tv4" : "He tenido un sueño muy raro, era como un héroe",
+		"tv5" : "Los sueños, sueños son",
+		"tv6" : "Tienes razón, tienes mucha razón",
+		"tv7" : "",
+		"tv8" : "Continuará..."
 	}
 }

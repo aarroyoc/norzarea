@@ -6,7 +6,7 @@ var event = require("gamejs/event");
 var director = require("./director");
 var start = require("./scenes/start");
 
-gamejs.preload(["./img/start.png","./img/DawnHack/Items/Books.png","./img/DawnHack/Objects/Pits0.png","./img/DawnHack/Items/Potions.png","./img/DawnHack/Items/Money.png","./img/DawnHack/Objects/Foliage.png","./img/DawnHack/Characters/Player0.png","./img/DawnHack/Characters/Felines0.png","./img/DawnHack/Items/ShortWeapons.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png","./img/DawnHack/Objects/Effects0.png","./img/DawnHack/GUI/GUI0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Items/Keys.png","./img/DawnHack/Characters/Insects0.png","./img/DawnHack/Characters/Humanoids0.png","./img/space.jpg"]);
+gamejs.preload(["./img/tv.png","./img/start.png","./img/DawnHack/Items/Books.png","./img/DawnHack/Objects/Pits0.png","./img/DawnHack/Items/Potions.png","./img/DawnHack/Items/Money.png","./img/DawnHack/Objects/Foliage.png","./img/DawnHack/Characters/Player0.png","./img/DawnHack/Characters/Felines0.png","./img/DawnHack/Items/ShortWeapons.png",'./img/DawnHack/Objects/Walls.png',"./img/DawnHack/Objects/Floors.png","./img/DawnHack/Objects/Tiles.png","./img/DawnHack/Objects/Furniture0.png","./img/DawnHack/Objects/Effects0.png","./img/DawnHack/GUI/GUI0.png",'./img/DawnHack/Objects/Mountains1.png',"./img/DawnHack/Items/Keys.png","./img/DawnHack/Characters/Insects0.png","./img/DawnHack/Characters/Humanoids0.png","./img/space.jpg"]);
 
 gamejs.ready(function() {
 	//var sound=new mixer.Sound("./music/MA_VLAST.ogg");
