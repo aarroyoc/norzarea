@@ -48,27 +48,27 @@ gamejs.ready(function() {
 	{
 GameController.init( { 
     left: {
-        position: { left: '45%', bottom: '45%' }, 
+        position: { left: '25%', bottom: '25%' }, 
         dpad: { 
-            up: {width: "25%", height: "25%", touchStart: function(){
+            up: {width: "15%", height: "15%", touchStart: function(){
 				event._CALLBACK.trigger({
 					type: "TOUCH",
 					key: "UP"
 				});
 			}}, 
-            down: {width: "25%", height: "25%", touchStart: function(){
+            down: {width: "15%", height: "15%", touchStart: function(){
 				event._CALLBACK.trigger({
 					type: "TOUCH",
 					key: "DOWN"
 				});
 			}}, 
-            left: { width: '25%', height: '25%', touchStart: function(){
+            left: { width: '15%', height: '15%', touchStart: function(){
 				event._CALLBACK.trigger({
 					type: "TOUCH",
 					key: "LEFT"
 				});
 			} }, 
-            right: { width: '25%', height: '25%', touchStart: function(){
+            right: { width: '15%', height: '15%', touchStart: function(){
 				event._CALLBACK.trigger({
 					type: "TOUCH",
 					key: "RIGHT"
@@ -78,7 +78,7 @@ GameController.init( {
     }, 
     right: {
 		type: "buttons",
-		position: { right: "25%", bottom: "45%"},
+		position: { right: "15%", bottom: "25%"},
 		buttons: [{
 			label: "ATTACK",
 			fontSize: 13,
