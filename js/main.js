@@ -29,7 +29,14 @@ gamejs.ready(function() {
 		});
 	}
    gamejs.display.setCaption('Norzarea');
+   var gjsCanvas=document.getElementById("gjs-canvas");
+   gjsCanvas.style.position="absolute";
+   gjsCanvas.style.left="0px";
+   gjsCanvas.style.top="0px";
+   gjsCanvas.style.width=window.innerWidth+"px";
+   gjsCanvas.style.height=window.innerHeight+"px";
    var display = gamejs.display.setMode([800, 400],gamejs.display.POINTERLOCK);
+   //var display = gamejs.display.getSurface();
    var dir=new director.Director();
    var scene=new start.StartScene(dir);
    dir.start(scene);
