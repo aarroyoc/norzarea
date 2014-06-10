@@ -1,6 +1,6 @@
 {
 	"name" : "Norzarea",
-	"description" : "Norzarea ha sufrido un gran apagón. ¿Qué misterio aguarda dentrás de este hecho?",
+	"description" : "Norzarea es un puzzle RPG. Deberás desafiar tu intelecto al ritmo que usas habilidades",
 	"launch_path" : "/index.html",
 	"icons" : {
 		"16" : "/img/icons/Narciso16.png",
@@ -22,9 +22,9 @@
 	"fullscreen" : "true",
 	"locales" : {
 		"en" : {
-			"description" : "Norzarea"
+			"description" : "Norzarea is a RPG puzzle. Currently it's only availible in Spanish but in a near future..."
 		}
 	},
 	"orientation" : "landscape",
-	"version" : "0.1"
+	"version" : "1.1"
 }
